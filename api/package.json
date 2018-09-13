@@ -1,0 +1,30 @@
+{
+  "name": "web-programming-boilerplate",
+  "version": "1.0.0",
+  "description": "Repositorio para web programming",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvarodasilva/web-programming-boilerplate.git"
+  },
+  "author": "Alvaro da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvarodasilva/web-programming-boilerplate/issues"
+  },
+  "homepage": "https://github.com/alvarodasilva/web-programming-boilerplate#readme",
+  "devDependencies": {
+    "@ucudal/eslint-config": "^0.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2",
+  }
+}

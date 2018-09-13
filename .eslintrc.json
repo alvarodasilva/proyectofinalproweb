@@ -1,8 +1,0 @@
-{
-  "env": {
-    "jest": true,
-    "node": true,
-    "browser": true
-  },
-  "extends": ["@ucudal", "plugin:prettier/recommended"]
-}
