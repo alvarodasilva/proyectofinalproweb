@@ -26,4 +26,4 @@ Francisco Perdomo
 Alvaro da Silva
 
 ### License
-GoBarter is licensed under a [MIT License.](https://github.com/olistic/warriorjs/blob/master/LICENSE)
+GoBarter is licensed under a [MIT License.](https://github.com/ucudal-wp/sienna-final/blob/master/LICENSE)
