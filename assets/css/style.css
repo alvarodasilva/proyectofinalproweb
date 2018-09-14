@@ -1,42 +1,21 @@
 body {
   background-color: white;
   margin: 0;
+}
+
+header {
+  border: 2px solid blue;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
   box-sizing: border-box;
 }
-/*
-header {
-  grid-area: header;
-  border: 2px solid sienna;
-}
 
-aside {
-  grid-area: aside;
-  border: 2px solid sienna;
-}
-
-main {
-  grid-area: main;
-  border: 2px solid sienna;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "header header header header"
-    "aside main main main"
-    "aside main main main";
-}*/
-
-header {
-  grid-area: header;
-  border: 2px solid blue;
-}
 nav {
   grid-area: nav;
   border: 2px solid blue;
 }
+
 main {
   grid-area: main;
   border: 2px solid blue;
@@ -62,7 +41,6 @@ footer {
   grid-template-columns: 15% 70% 15%;
   grid-template-rows: 80px 80px 80px 80px 80px 80px 80px;
   grid-template-areas:
-    "header header header"
     "nav section aside"
     "nav section aside"
     "nav main aside"
