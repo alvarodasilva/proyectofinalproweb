@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: #d8dfea;
   margin: 0;
 }
 
@@ -46,27 +46,28 @@ li a:hover {
 
 nav {
   grid-area: nav;
-  border: 2px solid sienna;
+  background-color: white;
+
 }
 
 main {
   grid-area: main;
-  border: 2px solid sienna;
+  background-color: white;
 }
 
 section {
   grid-area: section;
-  border: 2px solid sienna;
+  background-color: white;
 }
 
 footer {
   grid-area: footer;
-  border: 2px solid sienna;
+  background-color: white;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 10% 70% 13,5%;
+  grid-template-columns: 15% 50% 33,5%;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-rows: 80px 80px 80px 80px 80px 80px;
@@ -78,3 +79,4 @@ footer {
     "nav main main"
     "footer main main";
 }
+
