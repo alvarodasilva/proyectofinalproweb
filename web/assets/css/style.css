@@ -4,11 +4,35 @@ body {
 }
 
 header {
-  border: 2px solid sienna;
+  background-color: #3366ff;
   width: 100%;
-  height: 80px;
+  height: 50px;
   margin-bottom: 10px;
   box-sizing: border-box;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 15px 20px 15px 20px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #4d31ff;
 }
 
 nav {
@@ -18,11 +42,6 @@ nav {
 
 main {
   grid-area: main;
-  border: 2px solid sienna;
-}
-
-aside {
-  grid-area: aside;
   border: 2px solid sienna;
 }
 
@@ -43,10 +62,10 @@ footer {
   grid-row-gap: 10px;
   grid-template-rows: 80px 80px 80px 80px 80px 80px 80px;
   grid-template-areas:
-    "nav section aside"
-    "nav section aside"
-    "nav main aside"
-    "nav main aside"
-    "nav main aside"
-    "footer main aside";
+    "nav section section"
+    "nav section section"
+    "nav main main"
+    "nav main main"
+    "nav main main"
+    "footer main main";
 }
