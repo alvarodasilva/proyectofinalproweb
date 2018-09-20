@@ -66,10 +66,10 @@ footer {
 
 .container {
   display: grid;
-  grid-template-columns: 14% 70% 13,5%;
+  grid-template-columns: 10% 70% 13,5%;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  grid-template-rows: 80px 80px 80px 80px 80px 80px 80px;
+  grid-template-rows: 80px 80px 80px 80px 80px 80px;
   grid-template-areas:
     "nav section section"
     "nav section section"
