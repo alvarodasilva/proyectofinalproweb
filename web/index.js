@@ -7,4 +7,13 @@ expressNunjucks(app);
 app.get('/', function(req, res){
   res.render('index');
 })
+app.get('/aboutus', function(req, res){
+  res.render('aboutus');
+})
+app.get('/contact', function(req, res){
+  res.render('contact');
+})
+app.get('/login', function(req, res){
+  res.render('login');
+})
 app.listen(8000);
