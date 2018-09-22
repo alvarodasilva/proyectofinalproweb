@@ -78,5 +78,23 @@ footer {
     "nav main main"
     "nav main main"
     "footer main main";
+    text-align: center;
 }
-
+.text-box{
+  border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: 10%, 10%;
+    padding: 20px;
+}
+input[type=text],[type=email] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+textarea{
+  width : 400px;
+}
