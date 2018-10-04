@@ -72,6 +72,7 @@ nav{
   text-align: center;
   vertical-align: top;
   display: inline-block;
+  left: 0;
   box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
     10px 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
@@ -88,63 +89,91 @@ nav{
   font-size: 25px;
 }
 
-
-
-
-
-/*
-nav {
-  grid-area: nav;
-  background-color: white;
-
-}
-
-main {
-  grid-area: main;
-  background-color: white;
-}
-
-section {
-  grid-area: section;
-  background-color: white;
-}
-
-footer {
-  grid-area: footer;
-  background-color: white;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 15% 50% 33,5%;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-rows: 80px 80px 80px 80px 80px 80px;
-  grid-template-areas:
-    "nav section section"
-    "nav section section"
-    "nav main main"
-    "nav main main"
-    "nav main main"
-    "footer main main";
-    text-align: center;
-}
-.text-box{
-  border-radius: 5px;
-    background-color: #f2f2f2;
-    margin: 10%, 10%;
-    padding: 20px;
-}
-input[type=text],[type=email] {
-  width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
+main{
+  width: 900px; /*arreglar*/
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #3366ff;
+  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
+    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
+  vertical-align: top;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
-textarea{
-  width : 400px;
+/*
+.search-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: blue;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.search-btn{
+  color: black;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-txt{
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 15px;
+  transition: 0.4s;
 }
 */
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #0040ff;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #0040ff;
+  background: #0040ff;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
