@@ -1,12 +1,11 @@
 {
-  "name": "web-programming-boilerplate",
   "version": "1.0.0",
-  "description": "Repositorio para web programming",
-  "main": "index.js",
+  "description": "Repository for web programming course 2018 Universidad Catolica",
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,14 +18,19 @@
   },
   "homepage": "https://github.com/alvarodasilva/web-programming-boilerplate#readme",
   "devDependencies": {
-    "@ucudal/eslint-config": "^0.1.0",
+    "@ucudal/eslint-config": "^0.2.0",
     "@ucudal/stylelint-config": "^0.1.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.6.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.5.0",
     "prettier": "^1.14.2",
     "stylelint": "^9.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-nunjucks": "^2.2.3",
+    "nunjucks": "^3.1.3"
   }
 }
