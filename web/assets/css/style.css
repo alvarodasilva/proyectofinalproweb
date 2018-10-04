@@ -65,22 +65,8 @@ header {
   background: black;
   transition: width 0.3s;
 }
-/*
-nav{
-  width: 300px;
-  height: 400px;
-  background-color: #3366ff;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  text-align: center;
-  vertical-align: top;
-  display: inline-block;
-  left: 0;
-  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
-    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
-}
-*/
-.vertical-menu {
+
+nav {
   width: 300px;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -91,9 +77,9 @@ nav{
     10px 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.vertical-menu a {
+nav a {
   background-color: #3366ff;
-  color: black;
+  color: white;
   display: block;
   padding: 12px;
   text-decoration: none;
@@ -101,19 +87,8 @@ nav{
   font-size: 25px;
 }
 
-.vertical-menu a:hover {
+nav a:hover {
   background-color: #0040ff;
-}
-
-main{
-  width: 900px; /*arreglar*/
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #3366ff;
-  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
-    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
-  vertical-align: top;
-  display: inline-block;
 }
 
 /*search bar*/
@@ -152,10 +127,74 @@ main{
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
+.wrapSearch{
   width: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/*Card for each trade*/
+.wrapper {
+  height: 320px;
+  width: 654px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 320px;
+  width: 327px;
+}
+
+.product-img img {
+  border-radius: 7px 0 0 7px;
+}
+
+
+.product-info {
+  float: left;
+  height: 320px;
+  width: 327px;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  height: 200px;
+  width: 327px;
+  font-family: "Century Gothic", sans-serif;
+  color: black;
+  text-align: center;
+}
+
+
+.product-text h1 {
+  margin-left: 10px;
+  padding-top: 5px;
+  font-size: 25px;
+}
+
+
+.product-text h2 {
+  margin-left: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #3366ff;
+}
+
+
+.product-text p {
+  height: 125px;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
