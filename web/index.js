@@ -4,13 +4,12 @@ const expressNunjucks = require('express-nunjucks');
 const app = express();
 expressNunjucks(app);
 
+app.get('/', (req, res) => res.render('index'));
 
-app.get('/', (req, res) => (res.render('index')));
+app.get('/aboutus', (req, res) => res.render('aboutus'));
 
-app.get('/aboutus', (req, res) => (res.render('aboutus')));
+app.get('/contact', (req, res) => res.render('contact'));
 
-app.get('/contact', (req, res) => (res.render('contact')));
-
-app.get('/login', (req, res) => (res.render('login')));
+app.get('/login', (req, res) => res.render('login'));
 
 app.listen(8000);

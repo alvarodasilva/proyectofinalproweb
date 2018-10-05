@@ -13,7 +13,7 @@ header {
   top: 0;
 }
 
-.logo{
+.logo {
   float: left;
   margin-left: 20px;
   margin-right: 10px;
@@ -48,7 +48,7 @@ header {
 
 .efecto::after {
   margin-top: 2px;
-  content: "";
+  content: '';
   display: block;
   width: 0;
   height: 2px;
@@ -56,14 +56,14 @@ header {
   transition: width 0.3s;
 }
 .efecto:hover::after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 2px;
   background: black;
   transition: width 0.3s;
 }
-nav{
+nav {
   width: 300px;
   height: 400px;
   background-color: #3366ff;
@@ -76,21 +76,16 @@ nav{
     10px 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.navElement{
+.navElement {
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
-.navElement a{
+.navElement a {
   color: white;
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic', sans-serif;
   font-size: 25px;
 }
-
-
-
-
 
 /*
 nav {
