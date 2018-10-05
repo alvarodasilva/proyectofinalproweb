@@ -5,7 +5,13 @@
     <title>GoBarter</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<<<<<<< HEAD:web/views/index.html
     <link rel="stylesheet" href="/web/assets/css/style.css" />
+=======
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!--<link rel="stylesheet" href="assets/css/cards.css" />-->
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+>>>>>>> 6fcfe9e134c716d2b44d93a21a640021e098a4f3:web/index.html
 </head>
 
 <body>
@@ -25,15 +31,47 @@
                 <a class="efecto" href="#">Log out</a>
             </div>
         </div>
+        <div class="wrapSearch">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
     </header>
     <nav>
-        <div class="navElement">
-            <a class="efecto" href="index.html">Home</a>
-        </div>
-        <div class="navElement">
-            <a class="efecto" href="index.html">Profile</a>
-        </div>
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">My trades</a>
     </nav>
+    <main>
+        <div class="boxTrade">
+            <input type="text" placeholder="Article name">
+        </div>
+        <div class="wrapper">
+            <div class="product-img">
+                <img src="http://bit.ly/2tMBBTd" height="320" width="327">
+            </div>
+            <div class="product-info">
+                <div class="product-text">
+                    <h1>Harvest Vase</h1>
+                    <h2>@Guillenoble</h2>
+                    <p>Harvest Vases are a reinterpretation
+                        <br> of peeled fruits and vegetables as
+                        <br> functional objects. The surfaces
+                        <br> appear to be sliced and pulled aside,
+                        <br> allowing room for growth. </p>
+                    <h2>Like this product to trade</h2>
+                    <img src="assets/images/heart(24).png">
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="assets/js/index.js "></script>
+    <!--Used for logo in search bar (for now)-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js "></script>
 </body>
 
 </html>
