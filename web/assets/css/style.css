@@ -211,17 +211,56 @@ main{
   margin-bottom: 20px;
   padding: 10px;
   border: 2px solid white;
+  font-family: "Century Gothic", sans-serif;
 }
 
 /*Add your trade information boxes*/
-input[type=text]{
-   border: 1px solid black;
-   outline: none;
-   margin: 5px;
-   box-sizing: border-box;
-   transition: .3s;
+.boxTradeTerm {
+  width: 250px;
+  border: 3px solid #0040ff;
+  height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  margin-bottom: 15px;
+  display: block;
+}
+.boxTradeTerm:focus{
+  color: black;
 }
 
-input[type=text]:focus{
-  border-color: blue;
+/*Select type*/
+.boxSelectTerm{
+  width: 265px;
+  border: 3px solid #0040ff;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  margin-bottom: 15px;
+  display: block;
 }
+
+.iconSelectImg{
+  margin-left: 5px;
+  float: left;
+}
+
+.textSelectImg{
+ padding: 5px;
+ margin-left: 40px;
+ color: black;
+}
+
+textarea{
+  resize: none;
+  border: 3px solid #0040ff;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  width: 200px;
+}
+
+
+
