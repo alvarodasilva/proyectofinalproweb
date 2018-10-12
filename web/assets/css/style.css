@@ -92,7 +92,6 @@ nav a:hover {
 main {
   background-color: #3366ff;
   color: white;
-  vertical-align: top;
   display: inline-block;
   box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
     10px 6px 20px 0 rgba(0, 0, 0, 0.3);
@@ -201,7 +200,6 @@ main {
 /*add trade section*/
 .boxTrade {
   padding: 5px;
-  border: 2px solid white;
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: 'Century Gothic', sans-serif;
@@ -235,11 +233,13 @@ main {
   display: block;
 }
 
+/*Camara button to select images*/
 .iconSelectImg {
   display: inline-block;
   margin-right: 20px;
 }
 
+/*Area to introduce article description*/
 textarea {
   resize: none;
   border: 3px solid #0040ff;
@@ -249,7 +249,7 @@ textarea {
   height: 70px;
 }
 
-/**/
+/*notification number*/
 .notificationListNumber {
   position: absolute;
   background-color: red;
@@ -262,4 +262,32 @@ textarea {
   line-height: 30px;
   margin-left: 120px;
   font-family: 'Century Gothic', sans-serif;
+}
+
+.profileCard {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 0px;
+  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
+    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
+  background-color: #3366ff;
+}
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profileCard p {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  font-family: 'Century Gothic', sans-serif;
+  margin-left: 60px;
+  margin-right: 60px;
+  font-size: 15px;
 }
