@@ -1,5 +1,5 @@
 const users = require('./users');
-const users = require('./articles');
+const articles = require('./articles');
 
 const resourceRoutes = [users, articles];
 
