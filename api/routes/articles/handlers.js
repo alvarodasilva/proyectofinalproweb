@@ -1,5 +1,5 @@
 const find = (req, res) =>
-  res.json([{ _id: '1', name: 'Thing A' }, { id: '2', name: 'Thing B' }]);
+  res.json({ name: 'You have entered Articles route' });
 
 const findOne = (req, res) => res.json({ name: 'this is the article' });
 
