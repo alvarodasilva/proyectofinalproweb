@@ -199,6 +199,14 @@ main {
   font-weight: lighter;
   overflow: hidden;
 }
+
+.product-text h3 {
+  color: blue;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
 /*add trade section*/
 .boxTrade {
   padding: 5px;
