@@ -243,10 +243,10 @@ main {
   display: block;
 }
 
-/*Camara button to select images*/
-.iconSelectImg {
-  display: inline-block;
-  margin-right: 20px;
+/*Select image from pc directory*/
+.selectImg {
+  display: block;
+  margin: 15px;
 }
 
 /*Area to introduce article description*/
