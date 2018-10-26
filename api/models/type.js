@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // Define the schema.
 const typeSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    tname: { type: String, required: true },
+    tparent: { type: String, required: true },
   },
   { timestamps: true },
 );

@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 // Define the schema.
 const offerSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    uid: { type: String, required: true },
+    articleid: { type: String, required: true },
+    offarticleid: { type: String, required: true },
   },
   { timestamps: true },
 );

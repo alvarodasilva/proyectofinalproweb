@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 // Define the schema.
 const articleSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    aname: { type: String, required: true },
+    adesc: { type: String, required: true },
+    aphoto: { type: String, required: true },
+    tid: { type: String, required: true },
+    uid: { type: String, required: true },
   },
   { timestamps: true },
 );
