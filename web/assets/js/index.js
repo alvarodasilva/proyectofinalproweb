@@ -1,13 +1,12 @@
 const articles = [];
 
-function addArticle() {
+function getArticleData() {
   const articleNameInput = document.getElementById('articleNameInput').value;
   const articleDescriptionInput = document.getElementById(
     'articleDescriptionInput',
   ).value;
   const articleTypeInput = document.getElementById('articleTypeInput').value;
   const file = document.getElementById('file').value;
-  const articleCard = document.getElementById('articleCard');
   const newProduct = {
     articleName: null,
     articleType: null,
@@ -15,7 +14,10 @@ function addArticle() {
     articlePicture: null,
   };
   console.log(file);
-  if (10 <= articleDescriptionInput.length <= 60) {
+  if (
+    articleDescriptionInput.length <= 60 &&
+    articleDescriptionInput.length >= 10
+  ) {
     newProduct.articleName = articleNameInput;
     newProduct.articleDescription = articleDescriptionInput;
     newProduct.articleType = articleTypeInput;
@@ -26,11 +28,10 @@ function addArticle() {
     alert('Article description is too short');
   }
   let html = "<div class='wrapper' id='articleCard'>";
-  for (let i = 0; i < articles.length; i++) {
+  for (let i = 0; i < articles.length; i += 1) {
     /*  <div class="product-img">
                 <img id="articleImg" height="320" width="327">
             </div> */
-    alert(articles[i].articlePicture);
     html += "<div class='product-img'>";
     html +=
       "<img id='articleImg' height='320' width='327' src='" +
@@ -49,7 +50,8 @@ function addArticle() {
       "<p id='articleDescription'>" + articles[i].articleDescription + '</p>';
     html += '<h2>Like this product to trade</h2>';
     /* html += "<img src='heart(24).png'>"; */
-    html += "<input id='likeBoxButton' type='image' src='heart(24).png'>";
+    html +=
+      "<input id='likeBoxButton' type='image' src='/images/heart(24).png'>";
     html += '</div>';
     html += '</div>';
   }
@@ -57,3 +59,7 @@ function addArticle() {
   html += '</div>';
   document.getElementById('demo').innerHTML = html;
 }
+
+document.getElementById('addArticle').addEventListener('click', () => {
+  getArticleData();
+});
