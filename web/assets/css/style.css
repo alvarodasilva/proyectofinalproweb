@@ -13,7 +13,7 @@ header {
   top: 0;
 }
 
-.logo{
+.logo {
   float: left;
   margin-left: 20px;
   margin-right: 10px;
@@ -44,25 +44,23 @@ header {
 /*header elements underline efect*/
 .efecto {
   display: inline-block;
-  color: black;
   text-decoration: none;
 }
 
 .efecto::after {
   margin-top: 2px;
-  content: "";
+  content: '';
   display: block;
   width: 0;
   height: 2px;
-  background: black;
   transition: width 0.3s;
 }
 .efecto:hover::after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 2px;
-  background: black;
+  background: white;
   transition: width 0.3s;
 }
 
@@ -80,21 +78,20 @@ nav {
 nav a {
   background-color: #3366ff;
   color: white;
+  text-decoration: none;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 25px;
   display: block;
   padding: 12px;
-  text-decoration: none;
-  font-family: "Century Gothic", sans-serif;
-  font-size: 25px;
 }
 
 nav a:hover {
   background-color: #0040ff;
 }
 
-main{
+main {
   background-color: #3366ff;
   color: white;
-  vertical-align: top;
   display: inline-block;
   box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
     10px 6px 20px 0 rgba(0, 0, 0, 0.3);
@@ -106,7 +103,7 @@ main{
 /*search bar*/
 .search {
   width: 100%;
-  position: relative
+  position: relative;
 }
 
 .searchTerm {
@@ -120,7 +117,7 @@ main{
   color: white;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: black;
 }
 
@@ -139,7 +136,7 @@ main{
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrapSearch{
+.wrapSearch {
   width: 30%;
   position: absolute;
   top: 50%;
@@ -175,11 +172,10 @@ main{
 .product-text {
   height: 200px;
   width: 327px;
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic', sans-serif;
   color: black;
   text-align: center;
 }
-
 
 .product-text h1 {
   margin-left: 10px;
@@ -187,14 +183,12 @@ main{
   font-size: 25px;
 }
 
-
 .product-text h2 {
   margin-left: 10px;
   font-size: 12px;
   text-transform: uppercase;
   color: #3366ff;
 }
-
 
 .product-text p {
   height: 125px;
@@ -204,14 +198,11 @@ main{
   overflow: hidden;
 }
 /*add trade section*/
-.boxTrade{
-  height: 150px;
-  width: 654px;
+.boxTrade {
+  padding: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 10px;
-  border: 2px solid white;
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic', sans-serif;
 }
 
 /*Add your trade information boxes*/
@@ -226,12 +217,12 @@ main{
   margin-bottom: 15px;
   display: block;
 }
-.boxTradeTerm:focus{
+.boxTradeTerm:focus {
   color: black;
 }
 
 /*Select type*/
-.boxSelectTerm{
+.boxSelectTerm {
   width: 265px;
   border: 3px solid #0040ff;
   padding: 5px;
@@ -242,148 +233,61 @@ main{
   display: block;
 }
 
-.iconSelectImg{
-  margin-left: 5px;
-  float: left;
+/*Camara button to select images*/
+.iconSelectImg {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.textSelectImg{
- padding: 5px;
- margin-left: 40px;
- color: black;
-}
-
-textarea{
+/*Area to introduce article description*/
+textarea {
   resize: none;
   border: 3px solid #0040ff;
   border-radius: 5px;
   margin-bottom: 15px;
-  margin-left: 10px;
-  width: 200px;
+  width: 255px;
+  height: 70px;
 }
 
-/*Notification*/
-.notification {
-  margin-left: 20px;
-  margin-right: 10px;
-  margin-top: 8px;
-  position: relative;
-  display: inline-block;
-}
-
-.notification .badge {
+/*notification number*/
+.notificationListNumber {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 5px 10px;
-  border-radius: 50%;
   background-color: red;
-  color: white;
-}
-/*
-.notification-box {
-  position: fixed;
-  z-index: 99;
-  top: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-}
-.notification-bell {
-  animation: bell 1s 1s both infinite;
-}
-.notification-bell * {
-  display: block;
-  margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0px 0px 15px #fff;
-}
-.bell-top {
-  width: 6px;
-  height: 6px;
-  border-radius: 3px 3px 0 0;
-}
-.bell-middle {
-  width: 25px;
-  height: 25px;
-  margin-top: -1px;
-  border-radius: 12.5px 12.5px 0 0;
-}
-.bell-bottom {
-  position: relative;
-  z-index: 0;
-  width: 32px;
-  height: 2px;
-}
-.bell-bottom::before,
-.bell-bottom::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-}
-.bell-bottom::before {
-  left: 1px;
-  border-bottom: 4px solid #fff;
-  border-right: 0 solid transparent;
-  border-left: 4px solid transparent;
-}
-.bell-bottom::after {
-  right: 1px;
-  border-bottom: 4px solid #fff;
-  border-right: 4px solid transparent;
-  border-left: 0 solid transparent;
-}
-.bell-rad {
-  width: 8px;
-  height: 4px;
-  margin-top: 2px;
-  border-radius: 0 0 4px 4px;
-  animation: rad 1s 2s both infinite;
-}
-.notification-count {
-  position: absolute;
-  z-index: 1;
-  top: -6px;
-  right: -6px;
   width: 30px;
   height: 30px;
-  line-height: 30px;
-  font-size: 18px;
   border-radius: 50%;
-  background-color: #ff4927;
-  color: #fff;
-  animation: zoom 3s 3s both infinite;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin-left: 120px;
+  font-family: 'Century Gothic', sans-serif;
 }
-@keyframes bell {
-  0% { transform: rotate(0); }
-  10% { transform: rotate(30deg); }
-  20% { transform: rotate(0); }
-  80% { transform: rotate(0); }
-  90% { transform: rotate(-30deg); }
-  100% { transform: rotate(0); }
-}
-@keyframes rad {
-  0% { transform: translateX(0); }
-  10% { transform: translateX(6px); }
-  20% { transform: translateX(0); }
-  80% { transform: translateX(0); }
-  90% { transform: translateX(-6px); }
-  100% { transform: translateX(0); }
-}
-@keyframes zoom {
-  0% { opacity: 0; transform: scale(0); }
-  10% { opacity: 1; transform: scale(1); }
-  50% { opacity: 1; }
-  51% { opacity: 0; }
-  100% { opacity: 0; }
-}
-@keyframes moon-moving {
-  0% {
-    transform: translate(-200%, 600%);
-  }
-  100% {
-    transform: translate(800%, -200%);
-  }
-}*/
 
+.profileCard {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 0px;
+  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
+    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
+  background-color: #3366ff;
+}
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profileCard p {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  font-family: 'Century Gothic', sans-serif;
+  margin-left: 60px;
+  margin-right: 60px;
+  font-size: 15px;
+}
