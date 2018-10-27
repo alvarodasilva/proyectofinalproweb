@@ -11,5 +11,5 @@ const offerSchema = new mongoose.Schema(
 );
 
 // Create the model from the schema.
-const Offer = mongoose.model('Offer', OfferSchema);
+const Offer = mongoose.model('Offer', offerSchema);
 module.exports = Offer;
