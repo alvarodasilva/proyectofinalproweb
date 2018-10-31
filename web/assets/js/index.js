@@ -6,46 +6,45 @@ const articles = [
     type: null,
     description: null,
     picture: null,
-    /*user_id: null,
-    user_name: null,*/
+    /* user_id: null,
+    user_name: null, */
   },
   {
     name: null,
     type: null,
     description: null,
     picture: null,
-    /*user_id: null,
-    user_name: null,*/
+    /* user_id: null,
+    user_name: null, */
   },
   {
     name: null,
     type: null,
     description: null,
     picture: null,
-    /*user_id: null,
-    user_name: null,*/
+    /* user_id: null,
+    user_name: null, */
   },
 ];
+
+/* var str = `Hello, ${name}!`; */
 
 function showArticles(articlesTemp) {
   let html = "<div class='wrapper' id='articleCard'>";
   for (let i = 0; i < articlesTemp.length; i += 1) {
     html += "<div class='product-img'>";
-    html +=
-      "<img id='articleImg' height='320' width='327' src='" +
-      articlesTemp[i].picture +
-      "' />";
+    html += `<img id='articleImg' height='320' width='327' src=${
+      articlesTemp[i].picture
+    }/>`;
     html += '</div>';
     html += "<div class='product-info'>";
     html += "<div class='product-text'>";
-    html += "<h1 id='articleName'>" + articlesTemp[i].name + '</h1>';
+    html += `<h1 id='articleName'> ${articlesTemp[i].name} </h1>`;
     html += '<h2>@Guillenoble</h2>';
-    html +=
-      "<h3 class='articleType' id='articleType'>" +
-      articlesTemp[i].type +
-      '</h3>';
-    html +=
-      "<p id='articleDescription'>" + articlesTemp[i].description + '</p>';
+    html += `<h3 class='articleType' id='articleType'> ${
+      articlesTemp[i].type
+    } </h3>`;
+    html += `<p id='articleDescription'> ${articlesTemp[i].description} </p>`;
     html += '<h2>Like this product to trade</h2>';
     html +=
       "<input id='likeBoxButton' type='image' src='/images/heart(24).png'>";
@@ -53,8 +52,8 @@ function showArticles(articlesTemp) {
     html += '</div>';
   }
   html += '</div>';
-  const demo = document.getElementById('demo');
-  demo.innerHTML = html;
+  const showArticleCard = document.getElementById('demo');
+  showArticleCard.innerHTML = html;
 }
 
 showArticles(articles);
