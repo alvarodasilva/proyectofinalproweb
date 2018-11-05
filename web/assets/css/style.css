@@ -260,6 +260,7 @@ textarea {
 }
 
 /*notification number*/
+/*
 .notificationListNumber {
   position: absolute;
   background-color: red;
@@ -273,6 +274,7 @@ textarea {
   margin-left: 120px;
   font-family: 'Century Gothic', sans-serif;
 }
+*/
 
 .profileCard {
   width: 300px;

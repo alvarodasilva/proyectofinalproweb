@@ -23,7 +23,7 @@ const articles = [
 
 const offerArticleBox = document.getElementsByClassName('offerArticleBox');
 /* Opens box to offer article */
-function prueba() {
+function showOfferArticleBox() {
   if (offerArticleBox.style.display === 'none') {
     offerArticleBox.style.display = 'block';
   } else {
@@ -33,7 +33,6 @@ function prueba() {
 
 /* Shows article card */
 function showArticles(articlesTemp) {
-  console.log('show articles');
   let html = "<div class='wrapper'>";
   for (let i = 0; i < articlesTemp.length; i += 1) {
     html += "<div class='product-img'>";
@@ -47,14 +46,13 @@ function showArticles(articlesTemp) {
     html += `<p> ${articlesTemp[i].description} </p>`;
     html += '<h2>Like this product to trade</h2>';
     html +=
-      "<input type='image' src='/images/heart(24).png' onclick='prueba()'>";
+      "<input type='image' src='/images/heart(24).png' onclick='showOfferArticleBox()'>";
     html += '</div>';
     html += '</div>';
   }
   html += '</div>';
   const showArticleCard = document.getElementById('demo');
   showArticleCard.innerHTML = html;
-  console.log('show articles 2');
 }
 
 showArticles(articles);
