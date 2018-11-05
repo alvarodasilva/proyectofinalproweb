@@ -1,5 +1,5 @@
 const handlers = require('./handlers');
-// const validators = require('./validators');
+const validators = require('./validators');
 
 //TO DO add validators and correct parameters
 module.exports = router => {
