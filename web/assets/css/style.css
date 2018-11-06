@@ -247,6 +247,7 @@ main {
 .selectImg {
   display: block;
   margin: 15px;
+  outline: none;
 }
 
 /*Area to introduce article description*/

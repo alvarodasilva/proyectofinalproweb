@@ -20,16 +20,6 @@ const articles = [
     picture: null,
   },
 ];
-/*
-const offerArticleBox = document.getElementsByClassName('offerArticleBox');
-function showOfferArticleBox() {
-  if (offerArticleBox.style.display === 'none') {
-    offerArticleBox.style.display = 'block';
-  } else {
-    offerArticleBox.style.display = 'none';
-  }
-}
-*/
 
 /* Shows article card */
 /*
@@ -96,10 +86,16 @@ document.getElementById('addArticle').addEventListener('click', () => {
 });
 */
 
+async function getArticleName() {
+  const response = 'http://localhost:8000/articles';
+  const json = await response.json();
+  return JSON.stringify(json.name);
+}
+
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';
-  const showArticleCard = document.getElementById('demo').appendChild(wrapper);
+  const prodHolder = document.getElementById('demo').appendChild(wrapper);
 
   const prodImg = document.createElement('div');
   prodImg.className = 'product-img';
@@ -145,11 +141,19 @@ function showArticle(newArticle) {
   like.appendChild(likeText);
   prodText.appendChild(like);
 
+  const offerArticleBox = document.getElementById('offerArticleBox');
   const likeButton = document.createElement('input');
   likeButton.type = 'image';
   likeButton.src = '/images/heart(24).png';
+  likeButton.onclick = () => {
+    if (offerArticleBox.style.display === 'none') {
+      offerArticleBox.style.display = 'block';
+    } else {
+      offerArticleBox.style.display = 'none';
+    }
+  };
   prodText.appendChild(likeButton);
-  console.log(showArticleCard);
+  console.log(prodHolder);
 }
 
 function showArticles() {
@@ -188,9 +192,3 @@ function showArticleCard() {
 document.getElementById('addArticle').addEventListener('click', () => {
   showArticleCard();
 });
-
-const getPosts = () => {
-  return fetch('link')
-    .then(res => res.json())
-    .then(posts => console.log(posts));
-};
