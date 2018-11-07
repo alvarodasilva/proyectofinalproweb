@@ -1,12 +1,23 @@
-const find = (req, res) =>
-  res.json([{ _id: "1", name: "Thing A" }, { id: "2", name: "Thing B" }]);
+const User = require('../../models/user.js');
 
-const findOne = (req, res) => res.json({ name: "guille" });
+const mongoose = require('mongoose');
 
-const create = (req, res) => res.json({ name: "francisco" });
+const find = (req, res) => {
+  User.find(null, function(err, query_response) {
+    if (err != undefined && err != null) {
+      res.json({ error: 'Something went really wrong' });
+    } else {
+      res.json(query_response);
+    }
+  });
+};
+
+const findOne = (req, res) => res.json({ name: 'guille' });
+
+const create = (req, res) => res.json({ name: 'francisco' });
 
 module.exports = {
   find,
   findOne,
-  create
+  create,
 };
