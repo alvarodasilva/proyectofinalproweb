@@ -1,3 +1,4 @@
+require('dotenv').config();
 const db = require('./connectors/mongo');
 
 const initServer = () => {
@@ -15,7 +16,7 @@ const initServer = () => {
 
   app.use(errors);
 
-  app.listen(process.env.PORT || 8000);
+  app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
   console.info('Node Server Started');
 };
 
