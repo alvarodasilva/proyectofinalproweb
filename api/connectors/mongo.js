@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const mongoUri = 'mongodb://localhost/database';
 
-mongoose.connect(mongoUri);
+mongoose.connect(process.env.DB_HOST);
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
