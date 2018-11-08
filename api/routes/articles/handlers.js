@@ -1,28 +1,36 @@
+const Article = require('../../models/article.js');
 // TO DO implement create code, to create an article,
 // receives all article features
 const create = (req, res) =>
   res.json({ name: 'Create article with this features - ' });
 
 // TO DO implement find code, to return an array of articles
-const find = (req, res) => res.json({ name: 'Return all articles' });
+const find = async (req, res) => {
+  const { limit, ...query } = req.query;
+  const articles = await Article.find(query).limit(limit);
+  console.log(articles);
 
-// TO DO implement findOne code, to return a specific article,
-// receives articleID
-const findOne = (req, res) => res.json({ name: 'Return article of the id .' });
+  return res.json(articles);
+};
 
-// TO DO implement findType code, to return an array
-// of articles of a specific type, receives type
-const findType = (req, res) => res.json({ name: 'Return article of type - ' });
+const findOne = (req, res) => {
+  console.log('Return article of the id %s .', req.params.id);
+  return Article.findById(req.params.id);
+};
 
 // TO DO implement userArticles code, to return an array
 // of articles of a specific user, receives userID
-const userArticles = (req, res) =>
-  res.json({ name: 'Return article of the owner - ' });
+const userArticles = async (req, res) => {
+  const { limit, ...query } = req.query;
+  const articles = await Article.find(query).limit(limit);
+  console.log(articles);
+
+  return res.json(articles);
+};
 
 module.exports = {
   create,
   find,
-  findType,
   findOne,
   userArticles,
 };
