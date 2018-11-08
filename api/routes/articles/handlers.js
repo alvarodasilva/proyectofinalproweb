@@ -18,19 +18,8 @@ const findOne = (req, res) => {
   return Article.findById(req.params.id);
 };
 
-// TO DO implement userArticles code, to return an array
-// of articles of a specific user, receives userID
-const userArticles = async (req, res) => {
-  const { limit, ...query } = req.query;
-  const articles = await Article.find(query).limit(limit);
-  console.log(articles);
-
-  return res.json(articles);
-};
-
 module.exports = {
   create,
   find,
   findOne,
-  userArticles,
 };
