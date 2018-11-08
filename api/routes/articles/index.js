@@ -6,6 +6,5 @@ module.exports = router => {
   router.post('/articles', handlers.create);
   router.get('/articles', handlers.find);
   router.get('/articles/:id', handlers.findOne);
-
   return router;
 };
