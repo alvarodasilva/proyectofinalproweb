@@ -10,7 +10,9 @@ const initServer = () => {
 
   const app = express();
   const routes = require('./routes');
+  const cors = require('cors');
 
+  app.use(cors());
   app.use(bodyParser.json());
   app.use('/', routes(router));
 
