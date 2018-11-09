@@ -1,25 +1,6 @@
 /* fetch("http://localhost:8000/users").then(res=>(articles = res:)) */
 
-const articles = [
-  {
-    name: 'Reloj ultra potente',
-    type: null,
-    description: null,
-    picture: null,
-  },
-  {
-    name: null,
-    type: null,
-    description: null,
-    picture: null,
-  },
-  {
-    name: null,
-    type: null,
-    description: null,
-    picture: null,
-  },
-];
+let articles = [];
 
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
@@ -89,9 +70,14 @@ function showArticle(newArticle) {
 }
 
 function showArticles() {
-  for (let i = 0; i < articles.length; i += 1) {
-    showArticle(articles[i]);
-  }
+  fetch('http://localhost:8000/articles')
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.length; i += 1) {
+        showArticle(response[i]);
+      }
+    })
+    .catch(error => console.log(error));
 }
 
 showArticles();
