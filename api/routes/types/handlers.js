@@ -1,8 +1,26 @@
-// TO DO implement create code, to create an article,
-// receives name and parent, return id
-const create = (req, res) =>
-  res.json({ name: 'Create a type with this features' });
+const Type = require('mongoose').model('Type');
+
+const find = (req, res) => {
+  Type.find(req.query, function(err, types) {
+    if (err != undefined && err != null) {
+      res.json({ error: 'Something went really wrong' });
+    } else {
+      res.json(types);
+    }
+  });
+};
+
+const findById = (req, res) => {
+  Type.findById(req.params.id, function(err, type) {
+    if (err != undefined && err != null) {
+      res.json({ error: 'Something went really wrong' });
+    } else {
+      res.json(type);
+    }
+  });
+};
 
 module.exports = {
-  create,
+  find,
+  findById,
 };
