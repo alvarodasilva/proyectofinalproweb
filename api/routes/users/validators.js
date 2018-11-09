@@ -20,8 +20,13 @@ const create = celebrate({
   },
 });
 
+const update = celebrate({ query: { limit: Joi.number() } });
+const deletion = celebrate({ query: { limit: Joi.number() } });
+
 module.exports = {
   find,
   findOne,
   create,
+  update,
+  deletion,
 };

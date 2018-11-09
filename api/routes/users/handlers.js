@@ -10,10 +10,7 @@ const find = (req, res) => {
   });
 };
 
-const findOne = (req, res) => res.json({ name: 'guille' });
-
 const findById = (req, res) => {
-  console.log(require('uuid/v1')());
   User.findById(req.params.id, function(err, query_response) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });
@@ -24,8 +21,9 @@ const findById = (req, res) => {
 };
 
 const create = (req, res) => {
-  req.body._id = require('uuid/v1')();
-  User.create(req.body, function(err, user) {
+  let user_data = req.body;
+  user_data._id = require('uuid/v1')();
+  User.create(user_data, function(err, user) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });
     } else {
@@ -34,9 +32,33 @@ const create = (req, res) => {
   });
 };
 
+const update = (req, res) => {
+  User.updateOne({ _id: req.params.id }, req.body, function(
+    err,
+    query_response,
+  ) {
+    if (err != undefined && err != null) {
+      res.json({ error: 'Something went really wrong' });
+    } else {
+      res.json(query_response);
+    }
+  });
+};
+
+const deletion = (req, res) => {
+  User.deleteOne({ _id: req.params.id }, function(err, query_response) {
+    if (err != undefined && err != null) {
+      res.json({ error: 'Something went really wrong' });
+    } else {
+      res.json(query_response);
+    }
+  });
+};
+
 module.exports = {
   find,
-  findOne,
   findById,
   create,
+  update,
+  deletion,
 };
