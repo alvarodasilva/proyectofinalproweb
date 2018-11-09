@@ -2,6 +2,8 @@ const { celebrate, Joi } = require('celebrate');
 
 const find = celebrate({
   query: {
+    name: Joi.string(),
+    mail: Joi.string(),
     limit: Joi.number(),
   },
 });
