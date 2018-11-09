@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const expressNunjucks = require('express-nunjucks');
 
@@ -14,4 +15,4 @@ app.get('/login', (req, res) => res.render('login'));
 
 app.use(express.static('assets'));
 
-app.listen(8000);
+app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
