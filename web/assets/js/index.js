@@ -2,7 +2,7 @@
 
 const articles = [
   {
-    name: null,
+    name: 'Reloj ultra potente',
     type: null,
     description: null,
     picture: null,
@@ -21,77 +21,6 @@ const articles = [
   },
 ];
 
-/* Shows article card */
-/*
-function showArticles(articlesTemp) {
-  let html = "<div class='wrapper'>";
-  for (let i = 0; i < articlesTemp.length; i += 1) {
-    html += "<div class='product-img'>";
-    html += `<img height='320' width='327' src='${articlesTemp[i].picture}'/>`;
-    html += '</div>';
-    html += "<div class='product-info'>";
-    html += "<div class='product-text'>";
-    html += `<h1> ${articlesTemp[i].name} </h1>`;
-    html += '<h2>@Guillenoble</h2>';
-    html += `<h3 class='articleType'> ${articlesTemp[i].type} </h3>`;
-    html += `<p> ${articlesTemp[i].description} </p>`;
-    html += '<h2>Like this product to trade</h2>';
-    html +=
-      "<input type='image' src='/images/heart(24).png' onclick='showOfferArticleBox()'>";
-    html += '</div>';
-    html += '</div>';
-  }
-  html += '</div>';
-  const showArticleCard = document.getElementById('demo');
-  showArticleCard.innerHTML = html;
-}
-
-showArticles(articles);
-*/
-/* Creates article card */
-/*
-function createArticleCard() {
-  const articleNameInput = document.getElementById('articleNameInput').value;
-  const articleDescriptionInput = document.getElementById(
-    'articleDescriptionInput',
-  ).value;
-  const articleTypeInput = document.getElementById('articleTypeInput').value;
-  const file = document.getElementById('file').files[0];
-
-  const newArticle = {
-    name: null,
-    type: null,
-    description: null,
-    picture: null,
-    user_id: null,
-    user_name: null,
-  };
-  if (
-    articleDescriptionInput.length <= 100 &&
-    articleDescriptionInput.length >= 10
-  ) {
-    newArticle.name = articleNameInput;
-    newArticle.description = articleDescriptionInput;
-    newArticle.type = articleTypeInput;
-    newArticle.picture = file;
-    articles.push(newArticle);
-  } else {
-    alert('Article description is too short or long');
-  }
-  showArticles(articles);
-}
-
-document.getElementById('addArticle').addEventListener('click', () => {
-  createArticleCard();
-});
-*/
-
-async function getArticleName() {
-  const response = 'http://localhost:8000/articles';
-  const json = await response.json();
-  return JSON.stringify(json.name);
-}
-
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';
@@ -104,7 +33,7 @@ function showArticle(newArticle) {
   const img = document.createElement('img');
   img.width = '327';
   img.height = '320';
-  img.src = newArticle.picture;
+  img.onchange = newArticle.picture;
   prodImg.appendChild(img);
 
   const prodInfo = document.createElement('div');
@@ -117,6 +46,7 @@ function showArticle(newArticle) {
 
   const prodName = document.createElement('h1');
   const prodNameText = document.createTextNode(newArticle.name);
+  /* const prodNameText = document.createTextNode(JSON.stringify(json.name)); */
   prodName.appendChild(prodNameText);
   prodText.appendChild(prodName);
 
@@ -128,11 +58,13 @@ function showArticle(newArticle) {
   const prodType = document.createElement('div');
   prodType.className = 'articleType';
   const prodTypeName = document.createTextNode(newArticle.type);
+  /* const prodTypeName = document.createTextNode(JSON.stringify(json.type)); */
   prodType.appendChild(prodTypeName);
   prodText.appendChild(prodType);
 
   const prodDesc = document.createElement('p');
   const prodDescName = document.createTextNode(newArticle.description);
+  /* const prodDescName = document.createTextNode(JSON.stringify(json.type)); */
   prodDesc.appendChild(prodDescName);
   prodText.appendChild(prodDesc);
 
@@ -153,7 +85,7 @@ function showArticle(newArticle) {
     }
   };
   prodText.appendChild(likeButton);
-  console.log(prodHolder);
+  return prodHolder;
 }
 
 function showArticles() {
@@ -170,25 +102,45 @@ function showArticleCard() {
     'articleDescriptionInput',
   ).value;
   const articleTypeInput = document.getElementById('articleTypeInput').value;
-  const file = document.getElementById('file').files[0];
+  const file = document.getElementById('file');
 
   const newArticle = {
-    name: null,
-    type: null,
-    description: null,
+    name: articleNameInput,
+    type: articleTypeInput,
+    description: articleDescriptionInput,
     picture: null,
     user_id: null,
     user_name: null,
   };
+
+  /*
   newArticle.name = articleNameInput;
   newArticle.description = articleDescriptionInput;
   newArticle.type = articleTypeInput;
   newArticle.picture = file;
   articles.push(newArticle);
+  */
   console.log(articles);
   showArticle(newArticle);
+  return newArticle;
 }
 
+/*
+const newPost = post => {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: new Headers({
+      'Content-type': 'aplication/json',
+    }),
+  };
+  return fetch(`http://localhost:8000/articles`, options)
+    .then(res => res.json())
+    .then(res => console.log(res));
+};
+
+newPost(showArticleCard);
+*/
 document.getElementById('addArticle').addEventListener('click', () => {
   showArticleCard();
 });
