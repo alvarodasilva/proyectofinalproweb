@@ -1,15 +1,17 @@
 const { celebrate, Joi } = require('celebrate');
 
-//TO DO add correct validators for each one, add the ones remaining
 const find = celebrate({
   query: {
+    name: Joi.string(),
+    description: Joi.string(),
+    type_id: Joi.string(),
     limit: Joi.number(),
   },
 });
 
 const findOne = celebrate({
   params: {
-    id: Joi.number(),
+    id: Joi.string().guid(),
   },
 });
 
@@ -19,8 +21,13 @@ const create = celebrate({
   },
 });
 
+const update = celebrate({ query: { limit: Joi.number() } });
+const deletion = celebrate({ query: { limit: Joi.number() } });
+
 module.exports = {
-  create,
   find,
   findOne,
+  create,
+  update,
+  deletion,
 };

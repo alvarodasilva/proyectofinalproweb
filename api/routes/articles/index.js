@@ -1,14 +1,11 @@
 const handlers = require('./handlers');
 const validators = require('./validators');
 
-//TO DO add validators and correct parameters
-
 module.exports = router => {
-  router.post('/articles', validators.create, handlers.create);
   router.get('/articles', validators.find, handlers.find);
-  router.get('/articles/:id', validators.findOne, handlers.findOne);
-  router.get('/articles/:type', handlers.findType);
-  router.get('/articles/:id', handlers.userArticles);
-
+  router.post('/articles', validators.create, handlers.create);
+  router.get('/articles/:id', validators.find, handlers.findById);
+  router.put('/articles/:id', validators.update, handlers.update);
+  router.delete('/articles/:id', validators.deletion, handlers.deletion);
   return router;
 };

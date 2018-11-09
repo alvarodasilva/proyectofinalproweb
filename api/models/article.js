@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 /* Define the schema. */
 const articleSchema = new mongoose.Schema(
   {
+    _id: String,
     name: { type: String, required: true },
     description: { type: String, required: true },
     photo: { type: String, required: false },
