@@ -12,6 +12,8 @@ app.get('/contact', (req, res) => res.render('contact'));
 
 app.get('/login', (req, res) => res.render('login'));
 
+app.get('/signIn', (req, res) => res.render('signIn'));
+
 app.use(express.static('assets'));
 
 app.listen(8000);
