@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = require('mongoose').model('User');
 
 const find = (req, res) => {
-  User.find(null, function(err, query_response) {
+  User.find(req.query, function(err, query_response) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });
     } else {
