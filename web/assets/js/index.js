@@ -27,25 +27,30 @@ function showArticle(newArticle) {
 
   const prodName = document.createElement('h1');
   const prodNameText = document.createTextNode(newArticle.name);
-  /* const prodNameText = document.createTextNode(JSON.stringify(json.name)); */
   prodName.appendChild(prodNameText);
   prodText.appendChild(prodName);
 
-  const userName = document.createElement('h2');
-  const userNameText = document.createTextNode('@Guillenoble');
-  userName.appendChild(userNameText);
-  prodText.appendChild(userName);
+  let userTemp = 'http://localhost:8000/users/' + newArticle.user_id;
+  fetch(userTemp)
+    .then(response => response.json())
+    .then(response => {
+      userTemp = response.name;
+      console.log('algo: ' + userTemp);
+      const userName = document.createElement('h2');
+      const userNameText = document.createTextNode(userTemp);
+      userName.appendChild(userNameText);
+      prodText.appendChild(userName);
+      console.log(userTemp);
+    });
 
   const prodType = document.createElement('div');
   prodType.className = 'articleType';
   const prodTypeName = document.createTextNode(newArticle.type);
-  /* const prodTypeName = document.createTextNode(JSON.stringify(json.type)); */
   prodType.appendChild(prodTypeName);
   prodText.appendChild(prodType);
 
   const prodDesc = document.createElement('p');
   const prodDescName = document.createTextNode(newArticle.description);
-  /* const prodDescName = document.createTextNode(JSON.stringify(json.type)); */
   prodDesc.appendChild(prodDescName);
   prodText.appendChild(prodDesc);
 
@@ -96,7 +101,6 @@ function showArticleCard() {
     description: articleDescriptionInput,
     picture: null,
     user_id: null,
-    user_name: null,
   };
 
   /*
@@ -111,22 +115,6 @@ function showArticleCard() {
   return newArticle;
 }
 
-/*
-const newPost = post => {
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(post),
-    headers: new Headers({
-      'Content-type': 'aplication/json',
-    }),
-  };
-  return fetch(`http://localhost:8000/articles`, options)
-    .then(res => res.json())
-    .then(res => console.log(res));
-};
-
-newPost(showArticleCard);
-*/
 document.getElementById('addArticle').addEventListener('click', () => {
   showArticleCard();
 });
