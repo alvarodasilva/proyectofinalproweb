@@ -35,7 +35,7 @@ function showArticle(newArticle) {
   fetch(userTemp)
     .then(response => response.json())
     .then(response => {
-      userTemp = response[0].name;
+      userTemp = response.name;
       const userName = document.createElement('h2');
       const userNameText = document.createTextNode(userTemp);
       userName.appendChild(userNameText);
@@ -83,20 +83,25 @@ function showArticles() {
     .catch(error => console.log(error));
 }
 
-/*
 function showUserArticles(id) {
-  let userID = 'http://localhost:8000/articles' + id;
+  let userID =
+    'http://localhost:8000/articles/17033ac0-e395-11e8-b96f-11ed46201b00' + id;
   fetch(userID)
     .then(response => response.json())
     .then(response => {
+      var x = document.getElementById('userList');
       for (let i = 0; i < response.length; i += 1) {
-        response.name;
+        var option = document.createElement('option');
+        console.log(response[i].name + '-------------');
+        option.text = response[i].name;
+        x.add(option);
       }
     })
     .catch(error => console.log(error));
 }
-*/
+
 showArticles();
+showUserArticles('');
 
 function showArticleCard() {
   const articleNameInput = document.getElementById('articleNameInput').value;
