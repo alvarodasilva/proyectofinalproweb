@@ -31,18 +31,16 @@ function showArticle(newArticle) {
   prodText.appendChild(prodName);
 
   let userTemp = 'http://localhost:8000/users/' + newArticle.user_id;
+  console.log(userTemp);
   fetch(userTemp)
     .then(response => response.json())
     .then(response => {
-      userTemp = response.name;
-      console.log('algo: ' + userTemp);
+      userTemp = response[0].name;
       const userName = document.createElement('h2');
       const userNameText = document.createTextNode(userTemp);
       userName.appendChild(userNameText);
       prodText.appendChild(userName);
-      console.log(userTemp);
     });
-
   const prodType = document.createElement('div');
   prodType.className = 'articleType';
   const prodTypeName = document.createTextNode(newArticle.type);
@@ -85,6 +83,19 @@ function showArticles() {
     .catch(error => console.log(error));
 }
 
+/*
+function showUserArticles(id) {
+  let userID = 'http://localhost:8000/articles' + id;
+  fetch(userID)
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.length; i += 1) {
+        response.name;
+      }
+    })
+    .catch(error => console.log(error));
+}
+*/
 showArticles();
 
 function showArticleCard() {
