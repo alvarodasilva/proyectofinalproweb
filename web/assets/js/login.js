@@ -24,7 +24,7 @@ button.onclick = e => {
   loadingElementInterval = setLoadingElement(button);
   const mail = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  fetch('https://api-jfagblityb.now.sh/sessions', {
+  fetch('https://api-fmefvtyqns.now.sh/sessions', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',

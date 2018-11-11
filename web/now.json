@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@now/node-server",
+      "env": {
+        "DEFAULT_SEVER_PORT": "8080",
+        "API_HOST": "mongodb://sienna-final:sienna-final1234@ds157493.mlab.com:57493/sienna-final",
+        "NODE_ENV": "development"
+      },
+      "engines": {
+        "node": "10.9.0"
+      }
+    }
+  ]
+}
