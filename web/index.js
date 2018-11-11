@@ -2,16 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const expressNunjucks = require('express-nunjucks');
 
+const checkAuth = require('./middlewares/check-auth.js');
+const redirectToDashboard = require('./middlewares/redirect-to-dashboard.js');
+
 const app = express();
-expressNunjucks(app);
+expressNunjucks(app, { globals: { API_HOST: process.env.API_HOST } });
 
-app.get('/', (req, res) => res.render('index'));
+app.get('/', checkAuth, (req, res) => res.render('dashboard'));
 
-app.get('/aboutus', (req, res) => res.render('aboutus'));
+app.get('/aboutus', checkAuth, (req, res) => res.render('aboutus'));
 
-app.get('/contact', (req, res) => res.render('contact'));
+app.get('/contact', checkAuth, (req, res) => res.render('contact'));
 
-app.get('/login', (req, res) => res.render('login'));
+app.get('/profile', checkAuth, (req, res) => res.render('profile'));
+
+app.get('/login', redirectToDashboard, (req, res) => res.render('login'));
 
 app.use(express.static('assets'));
 

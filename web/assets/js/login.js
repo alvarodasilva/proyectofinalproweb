@@ -1,5 +1,11 @@
 const button = document.getElementById('sign-in-button');
 let loadingElementInterval;
+const setCookie = (cname, cvalue, exdays) => {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = 'expires=' + d.toUTCString();
+  document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+};
 
 const setLoadingElement = element => {
   element.textContent = 'Loggin';
@@ -24,7 +30,7 @@ button.onclick = e => {
   loadingElementInterval = setLoadingElement(button);
   const mail = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  fetch('https://api-fmefvtyqns.now.sh/sessions', {
+  fetch(window.API_HOST + '/sessions', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +42,7 @@ button.onclick = e => {
       if (data.error != undefined) {
         reportLoginFailure(data.error);
       } else {
-        localStorage.setItem('token', data.token);
+        setCookie('access_token', data.token, 7);
         window.location.href = '/';
       }
     })

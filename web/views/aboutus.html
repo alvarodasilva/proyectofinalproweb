@@ -1,53 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <title>GoBarter</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+{% block body %}
+<header>
+    <img class="logo" src="assets/images/logo(42x34).jpg">
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+    </ul>
+</header>
+<div class="container">
+    <main>
+        <div class="text-box">
+            <h3>Our Mission</h3>
+            <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
+                pharetra neque et eleifend venenatis.</p>
+        </div>
+        <div class="text-box">
+            <h3>Our goal</h3>
+            <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
+                pharetra neque et eleifend venenatis.</p>
+        </div>
+        <div class="text-box">
+            <h3>Quality assurance</h3>
+            <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
+                pharetra neque et eleifend venenatis.</p>
+        </div>
 
-</head>
-
-<body>
-    <header>
-        <img class="logo" src="assets/images/logo(42x34).jpg">
-        <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-        </ul>
-    </header>
-    <div class="container">
-        <main>
-            <div class="text-box">
-                <h3>Our Mission</h3>
-                <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
-                    pharetra neque et eleifend venenatis.</p>
+        <div class="container">
+            <h3>Our Location</h3>
+            <!-- GOOGLE MAP -->
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13090.795503528869!2d-56.16205013022461!3d-34.88890715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f80f873d74a43%3A0x13508c3340b76e45!2sUniversidad+Cat%C3%B3lica+del+Uruguay!5e0!3m2!1ses-419!2suy!4v1537572028641 "
+                    width="600 " height="450 " frameborder="0 " style="border:0 " allowfullscreen></iframe>
             </div>
-            <div class="text-box">
-                <h3>Our goal</h3>
-                <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
-                    pharetra neque et eleifend venenatis.</p>
-            </div>
-            <div class="text-box">
-                <h3>Quality assurance</h3>
-                <p>Integer imperdiet aliquet lobortis. In in metus risus. Pellentesque pulvinar venenatis dui id rutrum. In
-                    pharetra neque et eleifend venenatis.</p>
-            </div>
-
-            <div class="container">
-                <h3>Our Location</h3>
-                <!-- GOOGLE MAP -->
-                <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13090.795503528869!2d-56.16205013022461!3d-34.88890715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f80f873d74a43%3A0x13508c3340b76e45!2sUniversidad+Cat%C3%B3lica+del+Uruguay!5e0!3m2!1ses-419!2suy!4v1537572028641 "
-                        width="600 " height="450 " frameborder="0 " style="border:0 " allowfullscreen></iframe>
-                </div>
-            </div>
-            <h1>Pro about us!!!!</h1>
-        </main>
-    </div>
-
-</body>
-
-</html>
+        </div>
+        <h1>Pro about us!!!!</h1>
+    </main>
+</div>
+{% endblock %}
