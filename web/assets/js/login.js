@@ -24,12 +24,12 @@ button.onclick = e => {
   loadingElementInterval = setLoadingElement(button);
   const mail = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  fetch('http://localhost:8000/sessions', {
+  fetch('https://api-fmefvtyqns.now.sh/sessions', {
     method: 'post',
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ mail, password }),
+    body: JSON.stringify({ mail: mail, password: password }),
   })
     .then(response => response.json())
     .then(data => {
@@ -37,7 +37,7 @@ button.onclick = e => {
         reportLoginFailure(data.error);
       } else {
         localStorage.setItem('token', data.token);
-        window.location.replace('http://localhost:9000');
+        window.location.href = '/';
       }
     })
     .catch(err => {
