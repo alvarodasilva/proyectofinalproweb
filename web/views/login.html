@@ -1,34 +1,27 @@
-<!DOCTYPE HTML>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>GoBarter - Login Template</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/css/login.css" />
-    <!-- <script src="demo_async.js" async></script> -->
-</head>
+{% block header %}
+<link rel="stylesheet" href="/css/login.css" />
+<script defer src="js/login.js"></script>
+{% endblock %}
 
-<body>
-    <div class="login-container">
-        <img class="logoUsuario" src="/images/userLogo.png" alt="Logo del usuario">
-        <h1>Login</h1>
-        <!--Nombre de usuario-->
-        <label for="Mail de usuario">Email</label>
-        <input type="text" placeholder="Enter email" id="email">
-        <!--Contraseña-->
-        <label for="Contraseña">Password</label>
-        <input type="password" placeholder="Enter password" id="password">
-        <!-- <input type="submit" value="Sing In"> -->
-        <button id="sign-in-button" class="sign-in-button">Sign In</button>
-        <div>
-            <a href="#">Forgot password</a>
-        </div>
-        <div>
-            <a href="#">Sign up</a>
-        </div>
+{% block body %}
+<div class="login-container">
+    <img class="logoUsuario" src="/images/userLogo.png" alt="Logo del usuario">
+    <h1>Login</h1>
+    <!--Nombre de usuario-->
+    <label for="Mail de usuario">Email</label>
+    <input type="text" placeholder="Enter email" id="email">
+    <!--Contraseña-->
+    <label for="Contraseña">Password</label>
+    <input type="password" placeholder="Enter password" id="password">
+    <!-- <input type="submit" value="Sing In"> -->
+    <button id="sign-in-button" class="sign-in-button">Sign In</button>
+    <div>
+        <a href="#">Forgot password</a>
     </div>
-    <script src="js/login.js"></script>
-</body>
-
-
-</html>
+    <div>
+        <a href="#">Sign up</a>
+    </div>
+</div>
+{% endblock %}
