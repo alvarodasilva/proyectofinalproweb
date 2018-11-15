@@ -43,6 +43,8 @@ button.onclick = e => {
         reportLoginFailure(data.error);
       } else {
         setCookie('access_token', data.token, 7);
+        localStorage.setItem('access_token', data.token);
+        localStorage.setItem('current_user', JSON.stringify(data.user));
         window.location.href = '/';
       }
     })
