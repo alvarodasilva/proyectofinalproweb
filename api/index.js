@@ -1,14 +1,24 @@
-const express = require('express');
-const router = express.Router();
-const { errors } = require('celebrate');
+require('dotenv').config();
+const db = require('./connectors/mongo');
 
-const app = express();
-const routes = require('./routes');
+const initServer = () => {
+  const express = require('express');
+  const cors = require('cors');
+  const bodyParser = require('body-parser');
+  const router = express.Router();
+  const routes = require('./routes');
+  const { errors } = require('celebrate');
 
-// Connect to mongoDB.
-require('./connectors/mongo');
+  const app = express();
 
-app.use('/', routes(router));
-app.use(errors);
+  app.options('*', cors());
+  app.use(cors());
+  app.use(bodyParser.json());
+  app.use('/', routes(router));
+  app.use(errors);
 
-app.listen(process.env.PORT || 8000);
+  app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
+  console.info('Node Server Started');
+};
+
+db.once('open', () => initServer());

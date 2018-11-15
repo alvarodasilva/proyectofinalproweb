@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 /* Define the schema. */
 const typeSchema = new mongoose.Schema(
   {
+    _id: String,
     name: { type: String, required: true },
     description: { type: String, required: true },
   },
