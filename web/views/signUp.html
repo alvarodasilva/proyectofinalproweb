@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Sign Up</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/css/signIn.css" />
-  </head>
+{% extends "base.html" %} {% block header %} <title>Sign Up</title>
+<link rel="stylesheet" href="/css/signup.css" />
+<script defer src="js/signup.js"></script>
+{% endblock %} {% block body %}
+<div class="signIn-container">
+  <!-- <form> -->
+  <h1>Sign Up</h1>
+  <label for="name">Name</label>
+  <input id="name-field" type="text" placeholder="Name" />
 
-  <body>
-    <div class="signIn-container">
-      <form>
-        <h1>Sign Up</h1>
-        <label for="name">Name</label> <input type="text" placeholder="Name" />
+  <label for="email">Email</label>
+  <input id="email-field" type="email" placeholder="Email" />
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" />
+  <label for="password">Password</label>
+  <input id="password-field" type="password" placeholder="Password" />
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email" />
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" />
-
-        <input type="submit" value="Sign Up" />
-      </form>
-    </div>
-  </body>
-</html>
+  <button id="sign-up-button" class="sign-up-button">Sign Up</button>
+  <!-- <input type="submit" value="Sign Up" /> -->
+  <!-- </form> -->
+</div>
+{% endblock %}

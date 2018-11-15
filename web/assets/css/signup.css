@@ -37,9 +37,7 @@ body {
   margin-bottom: 20px;
 }
 
-.signIn-container input[type='text'],
-.signIn-container input[type='password'],
-.signIn-container input[type='email'] {
+.signIn-container input[type='text'], .signIn-container input[type='password'], .signIn-container input[type='email'] {
   border: none;
   border-bottom: 1px solid white;
   background: transparent;
@@ -49,7 +47,8 @@ body {
   font-size: 16px;
 }
 
-.signIn-container input[type='submit'] {
+.sign-up-button {
+  width: 100%;
   border: none;
   outline: none;
   height: 40px;
@@ -57,4 +56,8 @@ body {
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
+}
+
+.sign-up-button:hover {
+  background: #86c5f9;
 }
