@@ -11,14 +11,11 @@ const create = (req, res) => {
         .compare(req.body.password, user.password)
         .then(result => {
           if (result) {
-            let tokenData = {
-              username: user.name,
-            };
-            let token = jwt.sign(tokenData, process.env.JWT_KEY, {
+            delete user.password;
+            let token = jwt.sign({ user }, process.env.JWT_KEY, {
               expiresIn: 60 * 60 * 24,
             });
-            console.log(token);
-            res.json({ token });
+            res.json({ token, user });
           } else {
             res.json({ error: '401: Wrong password' });
           }

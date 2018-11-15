@@ -39,8 +39,9 @@ const create = (req, res) => {
           user_data.password = hash;
           User.create(user_data)
             .then(user => {
-              token = generateToken({ username: user.name });
-              res.json({ user_data, token });
+              delete user.password;
+              token = generateToken({ user });
+              res.json({ user, token });
             })
             .catch(err =>
               res.json({

@@ -48,8 +48,9 @@ signupButton.onclick = e => {
       if (data.error != undefined) {
         reportLoginFailure(data.error);
       } else {
-        debugger;
         setCookie('access_token', data.token, 7);
+        localStorage.setItem('access_token', data.token);
+        localStorage.setItem('current_user', JSON.stringify(data.user));
         window.location.href = '/';
       }
     })
