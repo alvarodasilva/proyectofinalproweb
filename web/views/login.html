@@ -1,27 +1,19 @@
-{% extends "base.html" %}
-
-{% block header %}
+{% extends "base.html" %} {% block header %}
 <link rel="stylesheet" href="/css/login.css" />
 <script defer src="js/login.js"></script>
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div class="login-container">
-    <img class="logoUsuario" src="/images/userLogo.png" alt="Logo del usuario">
-    <h1>Login</h1>
-    <!--Nombre de usuario-->
-    <label for="Mail de usuario">Email</label>
-    <input type="text" placeholder="Enter email" id="email">
-    <!--Contraseña-->
-    <label for="Contraseña">Password</label>
-    <input type="password" placeholder="Enter password" id="password">
-    <!-- <input type="submit" value="Sing In"> -->
-    <button id="sign-in-button" class="sign-in-button">Sign In</button>
-    <div>
-        <a href="#">Forgot password</a>
-    </div>
-    <div>
-        <a href="#">Sign up</a>
-    </div>
+  <img class="logoUsuario" src="/images/userLogo.png" alt="Logo del usuario" />
+  <h1>Login</h1>
+  <!-- Nombre de usuario -->
+  <label for="Mail de usuario">Email</label>
+  <input type="text" placeholder="Enter email" id="email" />
+  <!-- Contraseña -->
+  <label for="Contraseña">Password</label>
+  <input type="password" placeholder="Enter password" id="password" />
+  <!-- <input type="submit" value="Sing In"> -->
+  <button id="sign-in-button" class="sign-in-button">Sign In</button>
+  <div><a href="#">Forgot password</a></div>
+  <div><a href="/signup">Sign up</a></div>
 </div>
 {% endblock %}

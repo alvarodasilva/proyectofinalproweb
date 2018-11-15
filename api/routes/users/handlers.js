@@ -1,5 +1,6 @@
 const User = require('mongoose').model('User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const find = (req, res) => {
   User.find(req.query)
@@ -17,6 +18,13 @@ const findById = (req, res) => {
     );
 };
 
+const generateToken = tokenData => {
+  let token = jwt.sign(tokenData, process.env.JWT_KEY, {
+    expiresIn: 60 * 60 * 24,
+  });
+  return token;
+};
+
 const create = (req, res) => {
   let user_data = req.body;
   user_data._id = require('uuid/v1')();
@@ -30,7 +38,10 @@ const create = (req, res) => {
         } else {
           user_data.password = hash;
           User.create(user_data)
-            .then(user => res.json(user))
+            .then(user => {
+              token = generateToken({ username: user.name });
+              res.json({ user_data, token });
+            })
             .catch(err =>
               res.json({
                 error: 'Something went really wrong',
