@@ -1,8 +1,10 @@
 {
   "version": 1,
   "env": {
-    "DEFAULT_SEVER_PORT": "8080",
-    "API_HOST": "https://api-uvujsgnizx.now.sh",
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "SEVER_PORT": "8080",
+    "API_HOST": "https://go-barter-api.now.sh",
+    "JWT_KEY": "super secret key",
+    "SHA_SALTS": "10"
   }
 }
