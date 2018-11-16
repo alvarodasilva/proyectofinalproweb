@@ -2,11 +2,9 @@
   "version": "1.0.0",
   "description": "Repository for web programming course 2018 Universidad Catolica",
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "jest",
+    "test": "echo \"We are not running tests yet\"",
     "start": "node index.js",
-    "start_dev": "nodemon index.js"
+    "start-dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -31,9 +29,11 @@
     "nodemon": "^1.18.6"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.3",
     "express-nunjucks": "^2.2.3",
+    "jsonwebtoken": "^8.3.0",
     "nunjucks": "^3.1.3"
   }
 }

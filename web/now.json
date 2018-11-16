@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "env": {
+    "NODE_ENV": "production",
+    "SEVER_PORT": "8080",
+    "API_HOST": "https://go-barter-api.now.sh",
+    "JWT_KEY": "@jwt-key",
+    "SHA_SALTS": "10"
+  }
+}

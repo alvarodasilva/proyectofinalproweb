@@ -1,13 +1,6 @@
-<!DOCTYPE HTML>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>GoBarter</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-
-</head>
+{% block body %}
 <header>
     <img class="logo" src="assets/images/logo(42x34).jpg">
     <ul>
@@ -26,9 +19,8 @@
             </div>
             <textarea rows="6" placeholder="Your Message..." required></textarea>
             </br>
-            <button type="submit">Send It</button>
+            <button type="submit">Send It !!</button>
         </form>
     </div>
 </body>
-
-</html>
+{% endblock %}

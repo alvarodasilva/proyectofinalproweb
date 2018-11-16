@@ -1,31 +1,31 @@
 [
   {
-    "_id": "5be31a8e31b057afea1332a4",
+    "_id": "7d3c037e-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Technoloy",
     "description": "Devices like cellphones, consoles, laptops, etc"
   },
   {
-    "_id": "5be31b0031b057afea1332a5",
+    "_id": "db18ad58-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Home appliances",
     "description": "Items such as furniture, decoration for home, garden and outside"
   },
   {
-    "_id": "5be31dbf31b057afea1332a6",
+    "_id": "e7639dd4-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Musical Instruments",
     "description": "Articles like guitars, drums, piano etc"
   },
   {
-    "_id": "5be31e1131b057afea1332a7",
+    "_id": "ef308338-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Watches and Jewels",
     "description": "rings, chains, bracelets etc"
   },
   {
-    "_id": "5be31e4131b057afea1332a8",
+    "_id": "f8424a9c-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Books",
     "description": "Any kind of books"
   },
   {
-    "_id": "5be31e9331b057afea1332a9",
+    "_id": "ff16beb6-e3ce-11e8-9f32-f2801f1b9fd1",
     "name": "Sports",
     "description": "Cycling articles, areobics, fitness, camping, soccer etc"
   }

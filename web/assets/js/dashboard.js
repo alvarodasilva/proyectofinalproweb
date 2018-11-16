@@ -32,7 +32,9 @@ function showArticle(newArticle) {
 
   let userTemp = 'http://localhost:8000/users/' + newArticle.user_id;
   console.log(userTemp);
-  fetch(userTemp)
+  fetch(userTemp, {
+    headers: { token: localStorage.access_token },
+  })
     .then(response => response.json())
     .then(response => {
       userTemp = response.name;
@@ -73,7 +75,9 @@ function showArticle(newArticle) {
 }
 
 function showArticles() {
-  fetch('http://localhost:8000/articles')
+  fetch('http://localhost:8000/articles', {
+    headers: { token: localStorage.access_token },
+  })
     .then(response => response.json())
     .then(response => {
       for (let i = 0; i < response.length; i += 1) {
@@ -86,7 +90,9 @@ function showArticles() {
 function showUserArticles(id) {
   let userID =
     'http://localhost:8000/articles/17033ac0-e395-11e8-b96f-11ed46201b00' + id;
-  fetch(userID)
+  fetch(userID, {
+    headers: { token: localStorage.access_token },
+  })
     .then(response => response.json())
     .then(response => {
       var x = document.getElementById('userList');

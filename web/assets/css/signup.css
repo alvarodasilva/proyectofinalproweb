@@ -5,9 +5,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.login-container {
+.signIn-container {
   width: 330px;
-  height: 430px;
+  height: 480px;
   background: black;
   color: white;
   top: 50%;
@@ -18,35 +18,26 @@ body {
   padding: 70px 30px;
 }
 
-.login-container .logoUsuario {
-  width: 100;
-  height: 100px;
-  border-radius: 50%;
-  position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
-}
-
-.login-container h1 {
+.signIn-container h1 {
   margin: 0;
   padding: 0;
   text-align: center;
   font-size: 20px;
 }
 
-.login-container label {
+.signIn-container label {
   margin: 0;
   padding: 0;
   font-weight: bold;
   display: block;
 }
 
-.login-container input {
+.signIn-container input {
   width: 100%;
   margin-bottom: 20px;
 }
 
-.login-container input[type='text'], .login-container input[type='password'] {
+.signIn-container input[type='text'], .signIn-container input[type='password'], .signIn-container input[type='email'] {
   border: none;
   border-bottom: 1px solid white;
   background: transparent;
@@ -56,17 +47,7 @@ body {
   font-size: 16px;
 }
 
-.login-container input[type='submit'] {
-  border: none;
-  outline: none;
-  height: 40px;
-  background: #2196f3;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-
-.sign-in-button {
+.sign-up-button {
   width: 100%;
   border: none;
   outline: none;
@@ -77,17 +58,6 @@ body {
   border-radius: 20px;
 }
 
-.sign-in-button:hover {
+.sign-up-button:hover {
   background: #86c5f9;
-}
-
-.login-container a {
-  text-decoration: none;
-  font-size: 12px;
-  line-height: 20px;
-  color: darkgrey;
-}
-
-.login-container a:hover {
-  color: white;
 }

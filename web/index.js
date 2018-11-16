@@ -2,17 +2,27 @@ require('dotenv').config();
 const express = require('express');
 const expressNunjucks = require('express-nunjucks');
 
+const checkAuth = require('./middlewares/check-auth.js');
+const checkAuthSignUp = require('./middlewares/check-auth-signup.js');
+const redirectToDashboard = require('./middlewares/redirect-to-dashboard.js');
+
 const app = express();
-expressNunjucks(app);
+expressNunjucks(app, { globals: { API_HOST: process.env.API_HOST } });
 
-app.get('/', (req, res) => res.render('index'));
+app.get('/', checkAuth, (req, res) => res.render('dashboard'));
 
-app.get('/aboutus', (req, res) => res.render('aboutus'));
+app.get('/aboutus', checkAuth, (req, res) => res.render('aboutus'));
 
-app.get('/contact', (req, res) => res.render('contact'));
+app.get('/contact', checkAuth, (req, res) => res.render('contact'));
 
-app.get('/login', (req, res) => res.render('login'));
+app.get('/profile', checkAuth, (req, res) => res.render('profile'));
+
+app.get('/login', redirectToDashboard, (req, res) => res.render('login'));
+
+app.get('/signup', checkAuthSignUp, (req, res) => res.render('signup'));
 
 app.use(express.static('assets'));
 
-app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
+app.listen(process.env.SEVER_PORT);
+console.log('Node Server Started');
+console.log('Environment: ' + process.env.NODE_ENV);
