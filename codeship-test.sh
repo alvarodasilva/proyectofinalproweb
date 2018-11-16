@@ -1,3 +1,3 @@
 #!/bin/bash
-(cd web && npm run test)
-(cd api && npm run test)
+(cd web && npm test)
+(cd api && npm test)
