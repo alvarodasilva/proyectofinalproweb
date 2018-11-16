@@ -6,7 +6,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "start": "node index.js",
-    "start_dev": "nodemon index.js"
+    "start-dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",

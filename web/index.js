@@ -23,4 +23,6 @@ app.get('/signup', checkAuthSignUp, (req, res) => res.render('signup'));
 
 app.use(express.static('assets'));
 
-app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
+app.listen(process.env.SEVER_PORT);
+console.log('Node Server Started');
+console.log('Environment: ' + process.env.NODE_ENV);

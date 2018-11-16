@@ -1,17 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.js",
-      "use": "@now/node-server",
-      "env": {
-        "DEFAULT_SEVER_PORT": "8080",
-        "API_HOST": "https://api-jcwanohzow.now.sh/",
-        "NODE_ENV": "production"
-      },
-      "engines": {
-        "node": "10.9.0"
-      }
-    }
-  ]
+  "version": 1,
+  "env": {
+    "NODE_ENV": "production",
+    "SEVER_PORT": "8080",
+    "API_HOST": "https://go-barter-api.now.sh",
+    "JWT_KEY": "@jwt-key",
+    "SHA_SALTS": "10"
+  }
 }

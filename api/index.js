@@ -17,8 +17,9 @@ const initServer = () => {
   app.use('/', routes(router));
   app.use(errors);
 
-  app.listen(process.env.DEFAULT_SEVER_PORT || 8000);
+  app.listen(process.env.SEVER_PORT);
   console.info('Node Server Started');
+  console.log('Environment: ' + process.env.NODE_ENV);
 };
 
 db.once('open', () => initServer());
