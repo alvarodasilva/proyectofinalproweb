@@ -2,9 +2,7 @@
   "version": "1.0.0",
   "description": "Repository for web programming course 2018 Universidad Catolica",
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "jest",
+    "test": "echo \"We are not running tests yet\"",
     "start": "node index.js",
     "start-dev": "nodemon index.js"
   },

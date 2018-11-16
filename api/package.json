@@ -5,7 +5,7 @@
   "main": "index.test.js",
   "scripts": {
     "seed": "seed",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"We are not running tests yet\"",
     "start": "node index.js",
     "start-dev": "nodemon index.js"
   },
