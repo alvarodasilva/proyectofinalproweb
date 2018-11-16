@@ -1,5 +1,3 @@
-/* fetch("http://localhost:8000/users").then(res=>(articles = res:)) */
-
 let articles = [];
 
 function showArticle(newArticle) {
@@ -31,7 +29,6 @@ function showArticle(newArticle) {
   prodText.appendChild(prodName);
 
   let userTemp = 'http://localhost:8000/users/' + newArticle.user_id;
-  console.log(userTemp);
   fetch(userTemp, {
     headers: { token: localStorage.access_token },
   })
@@ -83,8 +80,8 @@ function showArticles() {
       for (let i = 0; i < response.length; i += 1) {
         showArticle(response[i]);
       }
-    })
-    .catch(error => console.log(error));
+    });
+  // .catch(error => console.log(error));
 }
 
 function showUserArticles(id) {
@@ -102,8 +99,8 @@ function showUserArticles(id) {
         option.text = response[i].name;
         x.add(option);
       }
-    })
-    .catch(error => console.log(error));
+    });
+  // .catch(error => console.log(error));
 }
 
 showArticles();
@@ -125,14 +122,6 @@ function showArticleCard() {
     user_id: null,
   };
 
-  /*
-  newArticle.name = articleNameInput;
-  newArticle.description = articleDescriptionInput;
-  newArticle.type = articleTypeInput;
-  newArticle.picture = file;
-  articles.push(newArticle);
-  */
-  console.log(articles);
   showArticle(newArticle);
   return newArticle;
 }
