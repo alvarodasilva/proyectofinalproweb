@@ -87,14 +87,21 @@ function showArticles() {
 
 // Get all the articles owned by the logged user
 function myArts() {
-  let url = 'http://localhost:8000/articles?owned=1';
+  let url = window.API_HOST + '/articles?owned=1';
   fetch(url, {
     headers: { token: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
-      myArticles = response[0];
-      console.log('My articles are: ' + myArticles.name);
+      myArticles = [];
+      for (let i = 0; i < response.length; i += 1) {
+        myArticles.push(response[i]);
+      }
+      for (let i = 0; i < myArticles.length; i += 1) {
+        console.log(
+          'My articles are: ' + myArticles[i].name + myArticles[i]._id,
+        );
+      }
     });
 }
 
