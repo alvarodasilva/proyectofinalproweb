@@ -1,5 +1,3 @@
-let articles = [];
-
 function printJSON(obj) {
   let output = '';
   for (property in obj) {
@@ -8,6 +6,7 @@ function printJSON(obj) {
   console.log(output);
 }
 
+// Creates the HTML div of one article that comes as a parameter
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';
@@ -81,6 +80,7 @@ function showArticle(newArticle) {
   return prodHolder;
 }
 
+// Shows all articles, this function is not used now, it remains for debugging
 function showArticles() {
   fetch(window.API_HOST + '/articles', {
     headers: { token: localStorage.access_token },
@@ -94,7 +94,7 @@ function showArticles() {
   // .catch(error => console.log(error));
 }
 
-// Get all the articles owned by the logged user
+// Get all the articles owned by the logged user, adds it to the offerBox dropdown list
 function myArts() {
   const dropDownl = document.getElementById('userList');
   let url = window.API_HOST + '/articles?owned=1';
@@ -170,3 +170,4 @@ document.getElementById('addArticle').addEventListener('click', () => {
 });
 
 showForeignArticles();
+myArts();
