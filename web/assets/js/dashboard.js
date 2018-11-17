@@ -1,5 +1,12 @@
 let articles = [];
-let myArticles = [];
+
+function printJSON(obj) {
+  let output = '';
+  for (property in obj) {
+    output += property + ': ' + obj[property] + '; ';
+  }
+  console.log(output);
+}
 
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
@@ -87,20 +94,21 @@ function showArticles() {
 
 // Get all the articles owned by the logged user
 function myArts() {
+  const dropDownl = document.getElementById('userList');
   let url = window.API_HOST + '/articles?owned=1';
   fetch(url, {
     headers: { token: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
-      myArticles = [];
       for (let i = 0; i < response.length; i += 1) {
-        myArticles.push(response[i]);
-      }
-      for (let i = 0; i < myArticles.length; i += 1) {
-        console.log(
-          'My articles are: ' + myArticles[i].name + myArticles[i]._id,
-        );
+        //printJSON(response[i]);
+        console.log(response[i].name);
+        const option = document.createElement('option');
+        option.id = response[i]._id;
+        option.text = response[i].name;
+        dropDownl.add(option);
+        console.log('My articles are: ' + response[i].name + response[i]._id);
       }
     });
 }
