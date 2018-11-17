@@ -98,6 +98,7 @@ main {
   margin-left: 20px;
   padding-left: 100px;
   padding-right: 100px;
+  width: 700px;
 }
 
 /*search bar*/
@@ -191,12 +192,21 @@ main {
 }
 
 .product-text p {
-  height: 125px;
   margin-left: 10px;
+  margin-bottom: 0px;
+  margin-right: 10px;
   font-size: 15px;
   font-weight: lighter;
   overflow: hidden;
 }
+
+.product-text h3 {
+  color: blue;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
 /*add trade section*/
 .boxTrade {
   padding: 5px;
@@ -233,10 +243,11 @@ main {
   display: block;
 }
 
-/*Camara button to select images*/
-.iconSelectImg {
-  display: inline-block;
-  margin-right: 20px;
+/*Select image from pc directory*/
+.selectImg {
+  display: block;
+  margin: 15px;
+  outline: none;
 }
 
 /*Area to introduce article description*/
@@ -250,6 +261,7 @@ textarea {
 }
 
 /*notification number*/
+/*
 .notificationListNumber {
   position: absolute;
   background-color: red;
@@ -263,6 +275,7 @@ textarea {
   margin-left: 120px;
   font-family: 'Century Gothic', sans-serif;
 }
+*/
 
 .profileCard {
   width: 300px;
@@ -290,4 +303,14 @@ textarea {
   margin-left: 60px;
   margin-right: 60px;
   font-size: 15px;
+}
+
+.offerArticleBox {
+  padding: 10px;
+  border: 2px solid black;
+  background-color: #0040ff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

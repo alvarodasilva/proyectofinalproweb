@@ -1,23 +1,13 @@
 {
   "version": "1.0.0",
-  "description": "Repository for web programming course 2018 Universidad Catolica",
+  "description": "Go barter WEB",
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
     "test": "jest",
     "start": "node index.js",
     "start-dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alvarodasilva/web-programming-boilerplate.git"
-  },
-  "author": "Alvaro da Silva",
+  "author": "Sienna Team",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alvarodasilva/web-programming-boilerplate/issues"
-  },
-  "homepage": "https://github.com/alvarodasilva/web-programming-boilerplate#readme",
   "devDependencies": {
     "@ucudal/eslint-config": "^0.2.0",
     "@ucudal/stylelint-config": "^0.1.0",
