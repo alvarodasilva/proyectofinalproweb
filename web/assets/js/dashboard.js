@@ -1,4 +1,5 @@
 let articles = [];
+let myArticles = [];
 
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
@@ -84,6 +85,19 @@ function showArticles() {
   // .catch(error => console.log(error));
 }
 
+// Get all the articles owned by the logged user
+function myArts() {
+  let url = 'http://localhost:8000/articles?owned=1';
+  fetch(url, {
+    headers: { token: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      myArticles = response[0];
+      console.log('My articles are: ' + myArticles.name);
+    });
+}
+
 // Shows all the articles owned by the logged user
 function showUserArticles() {
   let url = 'http://localhost:8000/articles?owned=1';
@@ -111,6 +125,8 @@ function showForeignArticles() {
       }
     });
 }
+
+showForeignArticles();
 
 function showArticleCard() {
   const articleNameInput = document.getElementById('articleNameInput').value;
