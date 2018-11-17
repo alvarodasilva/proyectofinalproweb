@@ -68,9 +68,11 @@ function showArticle(newArticle) {
   const likeButton = document.createElement('input');
   likeButton.type = 'image';
   likeButton.src = '/images/heart(24).png';
+  likeButton.id = newArticle._id;
   likeButton.onclick = () => {
     if (offerArticleBox.style.display === 'none') {
       offerArticleBox.style.display = 'block';
+      document.getElementById('artId').value = likeButton.id;
     } else {
       offerArticleBox.style.display = 'none';
     }
