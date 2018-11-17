@@ -28,7 +28,7 @@ function showArticle(newArticle) {
   prodName.appendChild(prodNameText);
   prodText.appendChild(prodName);
 
-  let userTemp = 'http://localhost:8000/users/' + newArticle.user_id;
+  let userTemp = window.API_HOST + '/users/' + newArticle.user_id;
   fetch(userTemp, {
     headers: { token: localStorage.access_token },
   })
@@ -72,7 +72,7 @@ function showArticle(newArticle) {
 }
 
 function showArticles() {
-  fetch('http://localhost:8000/articles', {
+  fetch(window.API_HOST + '/articles', {
     headers: { token: localStorage.access_token },
   })
     .then(response => response.json())
@@ -86,7 +86,7 @@ function showArticles() {
 
 // Shows all the articles owned by the logged user
 function showUserArticles() {
-  let url = 'http://localhost:8000/articles?owned=1';
+  let url = window.API_HOST + '/articles?owned=1';
   fetch(url, {
     headers: { token: localStorage.access_token },
   })
@@ -100,7 +100,7 @@ function showUserArticles() {
 
 // Shows all the articles that arent of the logged user
 function showForeignArticles() {
-  let url = 'http://localhost:8000/articles?owned=0';
+  let url = window.API_HOST + '/articles?owned=0';
   fetch(url, {
     headers: { token: localStorage.access_token },
   })
@@ -135,3 +135,5 @@ function showArticleCard() {
 document.getElementById('addArticle').addEventListener('click', () => {
   showArticleCard();
 });
+
+showForeignArticles();
