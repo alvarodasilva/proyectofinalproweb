@@ -5,7 +5,9 @@ const find = celebrate({
     name: Joi.string(),
     description: Joi.string(),
     type_id: Joi.string(),
+    user_id: Joi.string(),
     limit: Joi.number(),
+    owned: Joi.string(),
   },
 });
 
