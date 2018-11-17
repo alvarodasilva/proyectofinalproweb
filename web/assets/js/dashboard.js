@@ -169,5 +169,14 @@ document.getElementById('addArticle').addEventListener('click', () => {
   showArticleCard();
 });
 
+function makeOffer() {
+  const whatIwant = document.getElementById('artId').value;
+  let l = document.getElementById('userList');
+  const whatIoffer = l.options[l.selectedIndex].id;
+  console.log('I want your ' + whatIwant + ' for my ' + whatIoffer);
+
+  // TO DO : send post with data
+}
+
 showForeignArticles();
 myArts();
