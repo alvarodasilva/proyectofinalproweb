@@ -84,27 +84,33 @@ function showArticles() {
   // .catch(error => console.log(error));
 }
 
-function showUserArticles(id) {
-  let userID =
-    'http://localhost:8000/articles/17033ac0-e395-11e8-b96f-11ed46201b00' + id;
-  fetch(userID, {
+// Shows all the articles owned by the logged user
+function showUserArticles() {
+  let url = 'http://localhost:8000/articles?owned=1';
+  fetch(url, {
     headers: { token: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
-      var x = document.getElementById('userList');
       for (let i = 0; i < response.length; i += 1) {
-        var option = document.createElement('option');
-        console.log(response[i].name + '-------------');
-        option.text = response[i].name;
-        x.add(option);
+        showArticle(response[i]);
       }
     });
-  // .catch(error => console.log(error));
 }
 
-showArticles();
-showUserArticles('');
+// Shows all the articles that arent of the logged user
+function showForeignArticles() {
+  let url = 'http://localhost:8000/articles?owned=0';
+  fetch(url, {
+    headers: { token: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.length; i += 1) {
+        showArticle(response[i]);
+      }
+    });
+}
 
 function showArticleCard() {
   const articleNameInput = document.getElementById('articleNameInput').value;
