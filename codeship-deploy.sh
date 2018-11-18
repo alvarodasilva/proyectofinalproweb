@@ -9,6 +9,6 @@ API_DEPLOY_URL=`xsel -ob` && export API_DEPLOY_URL
 now alias $API_DEPLOY_URL go-barter-api
 cd ..
 cd web
-now --public --token $NOW_TOKEN
+now --public --token=$NOW_TOKEN
 WEB_DEPLOY_URL=`xsel -ob` && export WEB_DEPLOY_URL
 now alias $WEB_DEPLOY_URL go-barter
