@@ -2,7 +2,6 @@
 sudo apt-get update
 sudo apt-get install xsel
 npm i -g now
-now login federicomoyamartin@gmail.com
 cd api
 now --public --token=$NOW_TOKEN
 API_DEPLOY_URL=`xsel -ob` && export API_DEPLOY_URL
