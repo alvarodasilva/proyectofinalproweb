@@ -84,6 +84,7 @@ function showArticles() {
   // .catch(error => console.log(error));
 }
 
+/*
 function showUserArticles(id) {
   let userID =
     'http://localhost:8000/articles/17033ac0-e395-11e8-b96f-11ed46201b00' + id;
@@ -102,11 +103,11 @@ function showUserArticles(id) {
     });
   // .catch(error => console.log(error));
 }
-
+*/
 showArticles();
-showUserArticles('');
+//showUserArticles('');
 
-function showArticleCard() {
+function addArticle() {
   const articleNameInput = document.getElementById('articleNameInput').value;
   const articleDescriptionInput = document.getElementById(
     'articleDescriptionInput',
@@ -116,16 +117,38 @@ function showArticleCard() {
 
   const newArticle = {
     name: articleNameInput,
-    type: articleTypeInput,
+    type: null,
     description: articleDescriptionInput,
     picture: null,
-    user_id: null,
+    user_id: JSON.parse(localStorage.current_user)._id,
   };
+
+  fetch(window.API_HOST + '/articles', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      token: localStorage.access_token,
+    },
+    body: JSON.stringify(newArticle),
+  })
+    .then(res => res.json())
+    .catch(err => err);
 
   showArticle(newArticle);
   return newArticle;
 }
 
 document.getElementById('addArticle').addEventListener('click', () => {
-  showArticleCard();
+  addArticle();
 });
+
+/*
+let userTemp = window.API_HOST + '/users/' + newArticle.user_id;
+  fetch(userTemp, {
+    headers: { token: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      userTemp = response.name;
+    });
+*/

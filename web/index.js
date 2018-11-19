@@ -21,7 +21,7 @@ app.get('/login', redirectToDashboard, (req, res) => res.render('login'));
 
 app.get('/signup', checkAuthSignUp, (req, res) => res.render('signup'));
 
-app.get('/articles');
+app.get('/articles', checkAuth, (req, res) => res.render('articles'));
 
 app.use(express.static('assets'));
 
