@@ -62,4 +62,4 @@ typings/
 
 web/node_modules
 api/node_modules
-web/assets/*.css
+web/assets/css/*.css
