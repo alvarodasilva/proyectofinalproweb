@@ -314,3 +314,9 @@ textarea {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.deleteButton {
+  margin-left: 10px;
+  text-align: center;
+  background-color: royalblue;
+}

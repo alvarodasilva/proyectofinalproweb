@@ -68,6 +68,14 @@ function showArticle(newArticle) {
     }
   };
   prodText.appendChild(likeButton);
+
+  if (newArticle.user_id === JSON.parse(localStorage.current_user)._id) {
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'deleteButton';
+    const deleteButonText = document.createTextNode('Delete');
+    deleteButton.appendChild(deleteButonText);
+    prodInfo.appendChild(deleteButton);
+  }
   return prodHolder;
 }
 
