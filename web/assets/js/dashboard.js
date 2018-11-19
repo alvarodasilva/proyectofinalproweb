@@ -72,6 +72,7 @@ function showArticle(newArticle) {
     if (offerArticleBox.style.display === 'none') {
       offerArticleBox.style.display = 'block';
       document.getElementById('artId').value = likeButton.id;
+      console.log(likeButton.id);
     } else {
       offerArticleBox.style.display = 'none';
     }
@@ -143,7 +144,7 @@ function showForeignArticles() {
     });
 }
 
-showForeignArticles();
+//showForeignArticles();
 
 function showArticleCard() {
   const articleNameInput = document.getElementById('articleNameInput').value;
@@ -155,12 +156,26 @@ function showArticleCard() {
 
   const newArticle = {
     name: articleNameInput,
-    type: articleTypeInput,
+    type: null,
     description: articleDescriptionInput,
     picture: null,
     user_id: null,
   };
-
+  fetch(window.API_HOST + '/articles', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      token: localStorage.access_token,
+    },
+    body: JSON.stringify(newArticle),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.error != undefined) {
+        alert('Failed: ' + data.error);
+      }
+    })
+    .catch(err => err);
   showArticle(newArticle);
   return newArticle;
 }
@@ -173,9 +188,45 @@ function makeOffer() {
   const whatIwant = document.getElementById('artId').value;
   let l = document.getElementById('userList');
   const whatIoffer = l.options[l.selectedIndex].id;
+  console.log('Current user ' + JSON.parse(localStorage.current_user)._id);
   console.log('I want your ' + whatIwant + ' for my ' + whatIoffer);
+  getUserId(whatIwant).then(userId => {
+    fetch(window.API_HOST + '/offers', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        token: localStorage.access_token,
+      },
+      body: JSON.stringify({
+        article_id: whatIwant,
+        bidder_article_id: whatIoffer,
+        user_id: userId,
+        bidder_id: JSON.parse(localStorage.current_user)._id,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.error != undefined) {
+          alert('Failed: ' + data.error);
+        }
+      })
+      .catch(err => err);
+  });
 
   // TO DO : send post with data
+}
+
+function getUserId(articleId) {
+  console.log(articleId);
+  let userTemp = window.API_HOST + '/articles/' + articleId;
+  return fetch(userTemp, {
+    headers: { token: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log('id de usuario: ' + response.user_id);
+      return response.user_id;
+    });
 }
 
 showForeignArticles();
