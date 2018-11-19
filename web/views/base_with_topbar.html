@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GoBarter</title>
+    <title>Bartinder</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -12,11 +12,14 @@
       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     />
     <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/topbar.css" />
     <script defer src="js/base.js"></script>
+    <script defer src="js/topbar.js"></script>
     {% include "api-host-script.njk" %} {% block header %}{% endblock %}
   </head>
 
   <body>
+    {% include "topbar.html" %}
     <div class="flex-container">
       <div class="main-flex-container-child left-aside">
         {% block leftaside %} {% endblock %}

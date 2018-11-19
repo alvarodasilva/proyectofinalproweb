@@ -30,6 +30,10 @@ app.get('/login', redirectToDashboard, (req, res) => res.render('login'));
 
 app.get('/signup', checkAuthSignUp, (req, res) => res.render('signup'));
 
+app.get('/myarticles', checkAuth, (req, res) => res.render('myarticles'));
+
+app.get('/matches', checkAuth, (req, res) => res.render('myarticles'));
+
 app.use(express.static('assets'));
 
 app.listen(process.env.SEVER_PORT);

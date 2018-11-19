@@ -1,84 +1,11 @@
 @import 'palette.scss';
 
-body {
-  background-color: white;
-  margin: 0;
+.aside-nav {
+  // border-radius: 10px;
 }
 
-header {
-  background-color: $barter_blue;
-  width: 100%;
-  height: 50px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-  position: sticky;
-  top: 0;
-}
-
-.logo {
-  float: left;
-  margin-left: 20px;
-  margin-right: 10px;
-  margin-top: 8px;
-}
-
-/*header elements*/
-.headerList {
-  display: inline-block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.element {
-  float: left;
-}
-
-.element a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 15px 20px 15px 20px;
-  text-decoration: none;
-}
-
-/*header elements underline efect*/
-.efecto {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.efecto::after {
-  margin-top: 2px;
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  transition: width 0.3s;
-}
-.efecto:hover::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: white;
-  transition: width 0.3s;
-}
-
-nav {
-  width: 300px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  vertical-align: top;
-  display: inline-block;
-  left: 0;
-  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
-    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
-}
-
-nav a {
-  background-color: #3366ff;
+.aside-nav a {
+  background-color: $barter_green;
   color: white;
   text-decoration: none;
   font-family: 'Century Gothic', sans-serif;
@@ -87,64 +14,14 @@ nav a {
   padding: 12px;
 }
 
-nav a:hover {
-  background-color: #0040ff;
+.aside-nav a:hover {
+  background-color: $barter_strong_green;
 }
 
 main {
   background-color: #3366ff;
   color: white;
-  display: inline-block;
-  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
-    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
-  margin-left: 20px;
-  padding-left: 100px;
   padding-right: 100px;
-  width: 700px;
-}
-
-/*search bar*/
-.search {
-  width: 100%;
-  position: relative;
-}
-
-.searchTerm {
-  float: left;
-  width: 100%;
-  border: 2px solid $barter_green;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px;
-  outline: none;
-  color: white;
-}
-
-.searchTerm:focus {
-  color: black;
-}
-
-.searchButton {
-  position: absolute;
-  right: -50px;
-  width: 40px;
-  height: 36px;
-  border: 1px solid #0040ff;
-  background: #0040ff;
-  text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrapSearch {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /*Card for each trade*/
@@ -280,30 +157,27 @@ textarea {
 */
 
 .profileCard {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 200px;
   margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 0px;
-  box-shadow: 0px 15px 8px 0 rgba(0, 0, 0, 0.2),
-    10px 6px 20px 0 rgba(0, 0, 0, 0.3);
-  background-color: #3366ff;
+  background-color: $barter_green;
+  border-radius: 10px;
 }
 
 .profileImg {
   width: 100px;
   height: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .profileCard p {
+  width: 100px;
   background-color: white;
   color: black;
   border-radius: 15px;
   font-family: 'Century Gothic', sans-serif;
-  margin-left: 60px;
-  margin-right: 60px;
   font-size: 15px;
 }
 
