@@ -2,12 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const expressNunjucks = require('express-nunjucks');
 
+const sassMiddleware = require('node-sass-middleware');
+const path = require('path');
+
 const checkAuth = require('./middlewares/check-auth.js');
 const checkAuthSignUp = require('./middlewares/check-auth-signup.js');
 const redirectToDashboard = require('./middlewares/redirect-to-dashboard.js');
 
 const app = express();
 expressNunjucks(app, { globals: { API_HOST: process.env.API_HOST } });
+app.use(
+  sassMiddleware({
+    src: path.join(__dirname, 'assets'),
+    dest: path.join(__dirname, 'assets'),
+  }),
+);
 
 app.get('/', checkAuth, (req, res) => res.render('dashboard'));
 
