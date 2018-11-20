@@ -30,7 +30,7 @@ function showArticle(newArticle) {
 
   let userTemp = window.API_HOST + '/users/' + newArticle.user_id;
   fetch(userTemp, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
@@ -73,7 +73,7 @@ function showArticle(newArticle) {
 
 function showArticles() {
   fetch(window.API_HOST + '/articles', {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
@@ -88,7 +88,7 @@ function showArticles() {
 function showUserArticles() {
   let url = window.API_HOST + '/articles?owned=1';
   fetch(url, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
@@ -102,7 +102,7 @@ function showUserArticles() {
 function showForeignArticles() {
   let url = window.API_HOST + '/articles?owned=0';
   fetch(url, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
