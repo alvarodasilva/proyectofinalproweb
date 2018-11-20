@@ -144,8 +144,6 @@ function showForeignArticles() {
     });
 }
 
-//showForeignArticles();
-
 function showArticleCard() {
   const articleNameInput = document.getElementById('articleNameInput').value;
   const articleDescriptionInput = document.getElementById(

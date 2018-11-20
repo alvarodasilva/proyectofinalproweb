@@ -44,7 +44,6 @@ signupButton.onclick = e => {
   })
     .then(response => response.json())
     .then(data => {
-      debugger;
       if (data.error != undefined) {
         reportLoginFailure(data.error);
       } else {
