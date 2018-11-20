@@ -214,6 +214,10 @@ function makeOffer() {
   // TO DO : send post with data
 }
 
+document.getElementById('offerArticle').addEventListener('click', () => {
+  makeOffer();
+});
+
 function getUserId(articleId) {
   console.log(articleId);
   let userTemp = window.API_HOST + '/articles/' + articleId;
