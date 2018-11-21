@@ -1,3 +1,5 @@
+/* Load Types */
+getTypes().then(() => fillTypesCombo());
 /* Add form logic */
 const openAddForm = () => {
   document.getElementById('new-article-form').style.display = 'block';
@@ -9,17 +11,14 @@ const closeAddForm = () => {
 
 /* Handling Add Article */
 const onAddArticle = e => {
+  closeAddForm();
   const name = document.getElementById('add-name-field').value;
   const description = document.getElementById('add-description-field').value;
-  const type_id = 'db18ad58-e3ce-11e8-9f32-f2801f1b9fd1';
+  const type_id = document.getElementById('add-type-field').value;
   const user_id = getCurrentUser()._id;
-  fetch(window.API_HOST + '/articles', {
-    method: 'post',
-    headers: {
-      authorization: getAccessToken(),
-      'Content-Type': 'application/json',
-    },
-
-    body: JSON.stringify({ name, description, type_id, user_id }),
-  });
+  postArticle(name, description, type_id, user_id)
+    .then(() => {
+      alert('Article created !  NOTE: WE SHOULD RELOAD MYARTICLES');
+    })
+    .catch('Something failing on creating the article');
 };

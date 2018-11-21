@@ -7,7 +7,11 @@
 
 <!-- Add Article Button -->
 <div class="new-article-button-container">
-  <button id="add-article-button" class="add-article-button">
+  <button
+    id="add-article-button"
+    class="add-article-button"
+    onclick="openAddForm()"
+  >
     <p><b>NEW ARTICLE</b></p>
   </button>
 </div>
@@ -32,6 +36,9 @@
     placeholder="Enter article description"
     required
   />
+
+  <label for="type"><b>Type</b></label>
+  <select class="type-combo" id="add-type-field" name="type-combo"> </select>
 
   <button class="btn" onclick="onAddArticle()">ADD</button>
   <button class="btn cancel" onclick="closeAddForm()">CLOSE</button>
