@@ -1,8 +1,8 @@
 {% extends "base_with_topbar.html" %} {% block header %}
 <link rel="stylesheet" href="/css/matches.css" />
 <script defer src="js/matches.js"></script>
-{% endblock %} {% block leftaside %}
-<div style="background:red;height: 2000px;"></div>
+{% endblock %} {% block leftaside %} {% include "leftaside.njk" %}
+<nav class="aside-nav"><a href="/myarticles">My Articles</a></nav>
 {% endblock %} {% block center %}
 <h1>MATCHES</h1>
 {% endblock %} {% block rightaside %}
