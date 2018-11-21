@@ -60,3 +60,36 @@ body {
   white-space: nowrap;
   width: 80%;
 }
+
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: $barter_green;
+  border-radius: 10px;
+}
+
+.profileImg {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.profileCard p {
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 15px;
+}
+
+.left-aside {
+  height: 100vh;
+}
+
+.right-aside {
+  height: 100vh;
+}

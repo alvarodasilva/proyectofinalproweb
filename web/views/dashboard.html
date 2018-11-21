@@ -1,11 +1,7 @@
 {% extends "base_with_topbar.html" %} {% block header %}
 <link rel="stylesheet" href="/css/dashboard.css" />
 <script defer src="js/dashboard.js"></script>
-{% endblock %} {% block leftaside %}
-<div class="profileCard">
-  <img class="profileImg" src="/images/userLogo.png" />
-  <p>@Guillenoble</p>
-</div>
+{% endblock %} {% block leftaside %} {% include "leftaside.njk" %}
 <nav class="aside-nav">
   <a href="/myarticles">My Articles</a> <a href="/matches">Matches</a>
 </nav>
