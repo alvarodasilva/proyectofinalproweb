@@ -1,7 +1,16 @@
 const Article = require('mongoose').model('Article');
 
 const find = (req, res) => {
-  Article.find(req.query, function(err, articles) {
+  const queryCriteria = {};
+  const userId = req.userData.user._id;
+  const ownedByMe = req.query.owned === '1';
+  if (ownedByMe) {
+    queryCriteria.user_id = { $eq: userId };
+  } else {
+    queryCriteria.user_id = { $ne: userId };
+  }
+  console.log('Query: ' + queryCriteria);
+  Article.find(queryCriteria, function(err, articles) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });
     } else {

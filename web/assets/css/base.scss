@@ -1,0 +1,36 @@
+@import 'palette.scss';
+
+body {
+  margin: 0px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+}
+
+.main-flex-container-child {
+  margin: 0 auto 0 auto;
+}
+
+.left-aside {
+  width: 20%;
+  margin: 20px;
+}
+
+.right-aside {
+  width: 20%;
+  margin: 20px;
+}
+
+.center {
+  width: 60%;
+}
+
+@media all and (max-width: 500px) {
+  .main-flex-container-child {
+    display: none;
+  }
+}

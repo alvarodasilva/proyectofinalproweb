@@ -8,7 +8,8 @@ module.exports = (req, res, next) => {
       req.cookies.access_token !== undefined &&
       req.cookies.access_token !== null
     ) {
-      jwt.verify(req.cookies.access_token, process.env.JWT_KEY);
+      const token = req.cookies.access_token.split('Bearer')[1];
+      jwt.verify(token, process.env.JWT_KEY);
       res.redirect('/');
     } else {
       next();

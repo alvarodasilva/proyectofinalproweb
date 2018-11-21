@@ -1,3 +1,5 @@
+@import 'palette.scss';
+
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +39,9 @@ body {
   margin-bottom: 20px;
 }
 
-.signIn-container input[type='text'], .signIn-container input[type='password'], .signIn-container input[type='email'] {
+.signIn-container input[type='text'],
+.signIn-container input[type='password'],
+.signIn-container input[type='email'] {
   border: none;
   border-bottom: 1px solid white;
   background: transparent;
