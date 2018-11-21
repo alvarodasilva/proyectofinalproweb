@@ -13,6 +13,12 @@
                 <p id="logged-user-name"></p>
                 <p id="logged-user-email"></p>
             </div>
+            <script>
+                let u = JSON.parse(localStorage.current_user);
+                document.getElementById("logged-user-name").textContent =  u.name;
+                document.getElementById("logged-user-email").textContent = u.mail;
+            </script>
+
         </div>
 
         </div>
