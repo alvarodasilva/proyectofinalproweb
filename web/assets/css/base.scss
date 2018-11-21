@@ -117,3 +117,19 @@ body {
 .aside-nav a:hover {
   background-color: $barter_strong_green;
 }
+
+.aside-nav a {
+  border-radius: 5px;
+  margin: 5px;
+  background-color: $barter_green;
+  color: white;
+  text-decoration: none;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 25px;
+  display: block;
+  padding: 12px;
+}
+
+.aside-nav a:hover {
+  background-color: $barter_strong_green;
+}
