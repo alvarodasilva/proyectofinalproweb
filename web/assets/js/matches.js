@@ -28,7 +28,7 @@ function showArticle(newArticle) {
 
   let userTemp = window.API_HOST + '/users/' + newArticle.user_id;
   fetch(userTemp, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
@@ -54,22 +54,28 @@ function showArticle(newArticle) {
   like.appendChild(likeText);
   prodText.appendChild(like);
 
-  const aceptButton = document.createElement('button');
-  aceptButton.className = 'aceptButton';
-  const aceptButtonText = document.createTextNode('Acept');
-  aceptButton.appendChild(aceptButtonText);
-  wrapper.appendChild(aceptButton);
-
-  const discardButton = document.createElement('button');
-  aceptButton.className = 'discardButon';
-  const discardButtonText = document.createTextNode('Discard');
-  discardButton.appendChild(discardButtonText);
-  wrapper.appendChild(discardButton);
+  /*
+  const offerArticleBox = document.getElementById('offerArticleBox');
+  const likeButton = document.createElement('input');
+  likeButton.type = 'image';
+  likeButton.src = '/images/heart(24).png';
+  likeButton.id = newArticle._id;
+  likeButton.onclick = () => {
+    if (offerArticleBox.style.display === 'none') {
+      offerArticleBox.style.display = 'block';
+      document.getElementById('artId').value = likeButton.id;
+    } else {
+      offerArticleBox.style.display = 'none';
+    }
+  };
+  prodText.appendChild(likeButton);
+  */
   return prodHolder;
 }
 
 function showOffers() {
-  fetch(window.API_HOST + '/offers', {
+  let url = window.API_HOST + '/offers';
+  fetch(url, {
     headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
@@ -78,8 +84,7 @@ function showOffers() {
         console.log(response[i]);
         showArticle(response[i]);
       }
-    })
-    .catch(error => alert(error));
+    });
 }
 
 showOffers();

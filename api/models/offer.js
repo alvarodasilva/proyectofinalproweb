@@ -8,7 +8,7 @@ const offerSchema = new mongoose.Schema(
     bidder_article_id: { type: String, required: true },
     user_id: { type: String, required: true },
     article_id: { type: String, required: true },
-    status: { type: String, default: 'pending', required: true },
+    /*status: { type: String, default: 'pending', required: true },*/
   },
   { timestamps: true },
 );
