@@ -1,11 +1,3 @@
-function printJSON(obj) {
-  let output = '';
-  for (property in obj) {
-    output += property + ': ' + obj[property] + '; ';
-  }
-  console.log(output);
-}
-
 // Creates the HTML div of one article that comes as a parameter
 function showArticle(newArticle) {
   const wrapper = document.createElement('div');
@@ -72,7 +64,6 @@ function showArticle(newArticle) {
     if (offerArticleBox.style.display === 'none') {
       offerArticleBox.style.display = 'block';
       document.getElementById('artId').value = likeButton.id;
-      console.log(likeButton.id);
     } else {
       offerArticleBox.style.display = 'none';
     }
@@ -100,18 +91,15 @@ function myArts() {
   const dropDownl = document.getElementById('userList');
   let url = window.API_HOST + '/articles?owned=1';
   fetch(url, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
       for (let i = 0; i < response.length; i += 1) {
-        //printJSON(response[i]);
-        console.log(response[i].name);
         const option = document.createElement('option');
         option.id = response[i]._id;
         option.text = response[i].name;
         dropDownl.add(option);
-        console.log('My articles are: ' + response[i].name + response[i]._id);
       }
     });
 }
@@ -163,7 +151,7 @@ function showArticleCard() {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
-      token: localStorage.access_token,
+      authorization: localStorage.access_token,
     },
     body: JSON.stringify(newArticle),
   })
@@ -186,14 +174,12 @@ function makeOffer() {
   const whatIwant = document.getElementById('artId').value;
   let l = document.getElementById('userList');
   const whatIoffer = l.options[l.selectedIndex].id;
-  console.log('Current user ' + JSON.parse(localStorage.current_user)._id);
-  console.log('I want your ' + whatIwant + ' for my ' + whatIoffer);
   getUserId(whatIwant).then(userId => {
     fetch(window.API_HOST + '/offers', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        token: localStorage.access_token,
+        authorization: localStorage.access_token,
       },
       body: JSON.stringify({
         article_id: whatIwant,
@@ -219,14 +205,12 @@ document.getElementById('offerArticle').addEventListener('click', () => {
 });
 
 function getUserId(articleId) {
-  console.log(articleId);
   let userTemp = window.API_HOST + '/articles/' + articleId;
   return fetch(userTemp, {
-    headers: { token: localStorage.access_token },
+    headers: { authorization: localStorage.access_token },
   })
     .then(response => response.json())
     .then(response => {
-      console.log('id de usuario: ' + response.user_id);
       return response.user_id;
     });
 }
