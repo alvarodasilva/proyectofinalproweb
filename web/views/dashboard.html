@@ -45,17 +45,19 @@
 </main>
 <div id="offerArticleBox" class="offerArticleBox" style="display:none">
   <div class="boxTrade" align="center">
-    <select id="userList" class="boxSelectTerm">
-      <option value="technology">Technology</option>
-    </select>
-    <input
-      type="file"
-      accept="image/*"
-      name="image"
-      id="file"
-      class="selectImg"
-    />
-    <input type="image" id="addArticle" src="/images/plus(32).png" />
+    <p>Offer an article</p>
+    <input type="hidden" id="artId" value="" />
+    <select id="userList" class="boxSelectTerm"> </select>
+    <!--
+      input
+        type="file"
+        accept="image/*"
+        name="image"
+        id="file"
+        class="selectImg"
+      /
+    -->
+    <input type="image" id="offerArticle" src="/images/plus(32).png" />
   </div>
 </div>
 {% endblock %} {% block rightaside %}
