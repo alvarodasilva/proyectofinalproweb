@@ -41,3 +41,20 @@ const postArticle = (name, description, type_id, user_id) => {
     body: JSON.stringify({ name, description, type_id, user_id }),
   });
 };
+
+const loadMyArticles = () => {
+  let url = window.API_HOST + '/articles?owned=1';
+  return fetch(url, {
+    headers: { authorization: localStorage.access_token },
+  }).then(response => response.json());
+};
+
+function deleteArticle(articleId) {
+  return fetch(window.API_HOST + '/articles/' + articleId, {
+    method: 'delete',
+    headers: {
+      authorization: getAccessToken(),
+      'Content-Type': 'application/json',
+    },
+  });
+}

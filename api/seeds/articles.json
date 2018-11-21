@@ -4,6 +4,7 @@
     "name": "Puro Futbol",
     "description": "Excelente libro de Fontanarrosa, relatos, anectodas y algunas cuestiones tactcias",
     "type_id": "f8424a9c-e3ce-11e8-9f32-f2801f1b9fd1",
+    "type_name": "Books",
     "user_id": "17033ac0-e395-11e8-b96f-11ed46201b00"
   },
   {
@@ -11,6 +12,7 @@
     "name": "PlayStation 2",
     "description": "Excelente consola, antigua pero sa la banca",
     "type_id": "7d3c037e-e3ce-11e8-9f32-f2801f1b9fd1",
+    "type_name": "Technoloy",
     "user_id": "104c2ca0-e395-11e8-b96f-11ed46201b00"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Set of drums",
     "description": "Big set of drums, I have been using them since I was a child but it is still very functional and sounds greate, excellent for those who want to start in this area",
     "type_id": "e7639dd4-e3ce-11e8-9f32-f2801f1b9fd1",
+    "type_name": "Musical Instruments",
     "user_id": "0b97a540-e395-11e8-b96f-11ed46201b00"
   },
   {
@@ -25,6 +28,7 @@
     "name": "Nice chair",
     "description": "Excellent chair for the kitchen",
     "type_id": "db18ad58-e3ce-11e8-9f32-f2801f1b9fd1",
+    "type_name": "Home appliances",
     "user_id": "05fed860-e395-11e8-b96f-11ed46201b00"
   },
   {
@@ -32,6 +36,7 @@
     "name": "Awesome BMX bike",
     "description": "Quite old bmx bike, but still rides like a beast",
     "type_id": "ff16beb6-e3ce-11e8-9f32-f2801f1b9fd1",
+    "type_name": "Sports",
     "user_id": "f8aa1080-e394-11e8-b96f-11ed46201b00"
   }
 ]

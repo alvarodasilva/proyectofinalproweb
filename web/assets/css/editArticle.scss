@@ -20,19 +20,19 @@
 .btn-cancel:hover {
   background: $barter_strong_red;
 }
-.new-article-button-container {
+.edit-article-button-container {
   display: flex;
   flex-direction: row-reverse;
 }
 
-.add-article-button {
+.edit-article-button {
   background: $barter_green;
   border-radius: 5px;
   border-width: 2px;
   border-color: $barter_yellow;
 }
 
-.add-article-button:hover {
+.edit-article-button:hover {
   background: $barter_strong_green;
 }
 
@@ -63,14 +63,4 @@
   justify-content: right;
   height: 30px;
   flex-direction: row-reverse;
-}
-
-/* Article Detail */
-.article-detail {
-  background: $barter_yellow;
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid;
-  border-color: $barter_blue;
-  border-radius: 5px;
 }
