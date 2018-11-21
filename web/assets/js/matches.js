@@ -77,42 +77,38 @@ function showOffer(newOffer) {
     wrapper.className = 'wrap';
     const prodHolder = document.getElementById('demo').appendChild(wrapper);
 
-    const offerBidderId = document.createElement('p');
-    const offerBidderIdText = document.createTextNode(
-      'Bidder id: ' + newOffer.bidder_id,
-    );
-    console.log('New offer bidder id ' + newOffer.bidder_id);
-    offerBidderId.appendChild(offerBidderIdText);
-    wrapper.appendChild(offerBidderId);
-
-    const offerBidderArticleId = document.createElement('p');
-    const offerBidderArticleIdText = document.createTextNode(
-      'Bidder article id: ' + newOffer.bidder_article_id,
-    );
-    console.log('New offer article id ' + newOffer.bidder_article_id);
-    offerBidderArticleId.appendChild(offerBidderArticleIdText);
-    wrapper.appendChild(offerBidderArticleId);
-
-    const offerUserId = document.createElement('p');
-    const offerUserIdText = document.createTextNode(
-      'User id: ' + newOffer.user_id,
-    );
-    console.log('New offer user id ' + newOffer.user_id);
-    offerUserId.appendChild(offerUserIdText);
-    wrapper.appendChild(offerUserId);
-
-    const offerUserArticleId = document.createElement('p');
-    const offerUserArticleIdText = document.createTextNode(
-      'User article id: ' + newOffer.article_id,
-    );
-    console.log('New offer article id ' + newOffer.article_id);
-    offerUserArticleId.appendChild(offerUserArticleIdText);
-    wrapper.appendChild(offerUserArticleId);
-
     const status = document.createElement('p');
     let statusText = document.createTextNode('Status: ' + newOffer.status);
     status.appendChild(statusText);
     wrapper.appendChild(status);
+
+    getUserName(newOffer.bidder_id).then(name => {
+      const offerBidderId = document.createElement('p');
+      const offerBidderIdText = document.createTextNode('Bidder name: ' + name);
+      console.log('New offer bidder id ' + name);
+      offerBidderId.appendChild(offerBidderIdText);
+      wrapper.appendChild(offerBidderId);
+    });
+
+    getArticleName(newOffer.bidder_article_id).then(articleName => {
+      const offerBidderArticleId = document.createElement('p');
+      const offerBidderArticleIdText = document.createTextNode(
+        'Bidder article id: ' + articleName,
+      );
+      console.log('New offer article id ' + articleName);
+      offerBidderArticleId.appendChild(offerBidderArticleIdText);
+      wrapper.appendChild(offerBidderArticleId);
+    });
+
+    getArticleName(newOffer.article_id).then(articleId => {
+      const offerUserArticleId = document.createElement('p');
+      const offerUserArticleIdText = document.createTextNode(
+        'User article id: ' + articleId,
+      );
+      console.log('New offer article id ' + articleId);
+      offerUserArticleId.appendChild(offerUserArticleIdText);
+      wrapper.appendChild(offerUserArticleId);
+    });
 
     const aceptButton = document.createElement('button');
     aceptButton.className = 'aceptButton';
@@ -132,13 +128,8 @@ function showOffer(newOffer) {
       }
     };
     wrapper.appendChild(aceptButton);
-    console.log('------------------------------------');
-  }
-}
 
-function aceptOffer(newOffer) {
-  if (newOffer.status === 'pendind') {
-    newOffer.status === 'acepted';
+    console.log('------------------------------------');
   }
 }
 
@@ -156,5 +147,35 @@ function showOffers() {
     })
     .catch(error => alert(error));
 }
+
+function getUserName(userId) {
+  let userTemp = window.API_HOST + '/users/' + userId;
+  return fetch(userTemp, {
+    headers: { authorization: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log('El nombre es: ' + response.name);
+      const userName = response.name;
+      return userName;
+    })
+    .catch(error => alert(error));
+}
+
+function getArticleName(articleId) {
+  let userTemp = window.API_HOST + '/articles/' + articleId;
+  return fetch(userTemp, {
+    headers: { authorization: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log('El nombre es: ' + response.name);
+      const userName = response.name;
+      return userName;
+    })
+    .catch(error => alert(error));
+}
+
+function getUser() {}
 
 showOffers();
