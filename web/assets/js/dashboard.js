@@ -11,6 +11,7 @@ function showArticle(newArticle) {
   const img = document.createElement('img');
   img.width = '327';
   img.height = '320';
+  img.src = '/images/nopicture.png';
   img.onchange = newArticle.picture;
   prodImg.appendChild(img);
 
@@ -41,7 +42,7 @@ function showArticle(newArticle) {
     });
   const prodType = document.createElement('div');
   prodType.className = 'articleType';
-  const prodTypeName = document.createTextNode(newArticle.type);
+  const prodTypeName = document.createTextNode(newArticle.type_name);
   prodType.appendChild(prodTypeName);
   prodText.appendChild(prodType);
 
@@ -119,7 +120,8 @@ function showUserArticles() {
 }
 
 // Shows all the articles that arent of the logged user
-function showForeignArticles() {
+async function showForeignArticles() {
+  await getTypes();
   let url = window.API_HOST + '/articles?owned=0';
   fetch(url, {
     headers: { authorization: localStorage.access_token },
@@ -165,10 +167,6 @@ function showArticleCard() {
   showArticle(newArticle);
   return newArticle;
 }
-
-document.getElementById('addArticle').addEventListener('click', () => {
-  showArticleCard();
-});
 
 function makeOffer() {
   const whatIwant = document.getElementById('artId').value;

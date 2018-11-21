@@ -91,9 +91,17 @@ body {
 }
 
 .right-aside {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90vh;
 }
 
+.right-aside > img {
+  width: 100px;
+  height: 100px;
+}
 .aside-nav a {
   border-radius: 5px;
   margin: 5px;
