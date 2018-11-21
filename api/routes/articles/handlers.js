@@ -1,4 +1,5 @@
 const Article = require('mongoose').model('Article');
+const Type = require('mongoose').model('Type');
 
 const find = (req, res) => {
   const queryCriteria = {};
@@ -9,7 +10,6 @@ const find = (req, res) => {
   } else {
     queryCriteria.user_id = { $ne: userId };
   }
-  console.log('Query: ' + queryCriteria);
   Article.find(queryCriteria, function(err, articles) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });
@@ -31,17 +31,25 @@ const findById = (req, res) => {
 
 const create = (req, res) => {
   let article_data = req.body;
+  let type_name;
   article_data._id = require('uuid/v1')();
-  Article.create(article_data, function(err, article) {
-    if (err != undefined && err != null) {
-      res.json({ error: 'Something went really wrong' });
-    } else {
-      res.json(article);
-    }
+  Type.findById(article_data.type_id).then(type => {
+    article_data.type_name = type.name;
+    Article.create(article_data, function(err, article) {
+      if (err != undefined && err != null) {
+        res.json({ error: 'Something went really wrong' });
+      } else {
+        res.json(article);
+      }
+    });
   });
 };
 
 const update = (req, res) => {
+  console.log('BODYYY');
+  console.log(req.body);
+  console.log('ID');
+  console.log(req.params.id);
   Article.updateOne({ _id: req.params.id }, req.body, function(
     err,
     query_response,
@@ -55,6 +63,7 @@ const update = (req, res) => {
 };
 
 const deletion = (req, res) => {
+  console.log('DELETING' + req.params.id);
   Article.deleteOne({ _id: req.params.id }, function(err, query_response) {
     if (err != undefined && err != null) {
       res.json({ error: 'Something went really wrong' });

@@ -1,13 +1,17 @@
 {% extends "base_with_topbar.html" %} {% block header %}
 <link rel="stylesheet" href="/css/myarticles.css" />
 <script defer src="js/myarticles.js"></script>
-{% endblock %} {% block leftaside %}
-<div style="background:red;height: 2000px;"></div>
+{% endblock %} {% block leftaside %} {% include "leftaside.njk" %}
+<nav class="aside-nav"><a href="/matches">Matches</a></nav>
 {% endblock %} {% block center %}
 
 <!-- Add Article Button -->
 <div class="new-article-button-container">
-  <button id="add-article-button" class="add-article-button">
+  <button
+    id="add-article-button"
+    class="add-article-button"
+    onclick="openAddForm()"
+  >
     <p><b>NEW ARTICLE</b></p>
   </button>
 </div>
@@ -33,10 +37,14 @@
     required
   />
 
-  <button class="btn" onclick="onAddArticle()">ADD</button>
-  <button class="btn cancel" onclick="closeAddForm()">CLOSE</button>
+  <label for="type"><b>Type</b></label>
+  <select class="type-combo" id="add-type-field" name="type-combo"> </select>
+
+  <div class="buttons-container-form">
+    <button class="add-article-button" onclick="onAddArticle()">ADD</button>
+    <button class="btn-cancel" onclick="closeAddForm()">CLOSE</button>
+  </div>
 </div>
 
-{% endblock %} {% block rightaside %}
-<div style="background:red;height: 2000px;"></div>
-{% endblock %}
+{% endblock %} {% block rightaside %} {% include "rightAside.njk" %} {% endblock
+%}

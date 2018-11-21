@@ -1,34 +1,16 @@
 @import 'palette.scss';
 
-.aside-nav {
-  // border-radius: 10px;
-}
-
-.aside-nav a {
-  background-color: $barter_green;
+.center {
+  background-color: $barter_blue;
   color: white;
-  text-decoration: none;
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 25px;
-  display: block;
-  padding: 12px;
-}
-
-.aside-nav a:hover {
-  background-color: $barter_strong_green;
-}
-
-main {
-  background-color: #3366ff;
-  color: white;
-  padding-right: 100px;
 }
 
 /*Card for each trade*/
 .wrapper {
+  margin: 20px;
   height: 320px;
   width: 654px;
-  margin: 50px auto;
+  margin: 20px auto 20px auto;
 }
 
 .product-img {
@@ -45,7 +27,7 @@ main {
   float: left;
   height: 320px;
   width: 327px;
-  border-radius: 0 7px 10px 7px;
+  border-radius: 0 7px 10px 0px;
   background-color: #ffffff;
 }
 
@@ -155,32 +137,6 @@ textarea {
   font-family: 'Century Gothic', sans-serif;
 }
 */
-
-.profileCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  margin-bottom: 20px;
-  background-color: $barter_green;
-  border-radius: 10px;
-}
-
-.profileImg {
-  width: 100px;
-  height: 100px;
-}
-
-.profileCard p {
-  width: 100px;
-  background-color: white;
-  color: black;
-  border-radius: 15px;
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 15px;
-}
-
 .offerArticleBox {
   padding: 10px;
   border: 2px solid black;

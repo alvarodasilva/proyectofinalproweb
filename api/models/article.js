@@ -8,6 +8,7 @@ const articleSchema = new mongoose.Schema(
     description: { type: String, required: true },
     photo: { type: String, required: false },
     type_id: { type: String, required: true },
+    type_name: { type: String, required: false },
     user_id: { type: String, required: true },
   },
   { timestamps: true },

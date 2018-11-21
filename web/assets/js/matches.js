@@ -60,6 +60,12 @@ function showOffer(newOffer) {
     status.appendChild(statusText);
     wrapper.appendChild(status);
 
+    const input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('id', 'offId');
+    input.setAttribute('value', newOffer._id);
+    wrapper.appendChild(input);
+
     const aceptButton = document.createElement('button');
     aceptButton.setAttribute('class', 'aceptButton');
     const aceptButtonText = document.createTextNode('Acept');
@@ -74,22 +80,26 @@ function showOffer(newOffer) {
         status.appendChild(newStatusText);
         wrapper.removeChild(aceptButton);
         wrapper.removeChild(wrapper.firstChild);
-        /*
-        let bidderIdTemp = newOffer.bidder_id;
-        let userIdTemp = newOffer.user_id;
-        console.log('BidderIdTemp ' + bidderIdTemp);
-        console.log('UserIdTemp ' + userIdTemp);
-        fetch(window.API_HOST + '/articles', {
-          headers: { authorization: localStorage.access_token },
+
+        const url =
+          window.API_HOST + '/offers/' + document.getElementById('offId').value;
+        fetch(url, {
+          method: 'put',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: localStorage.access_token,
+          },
+          body: JSON.stringify({
+            status: 'acepted',
+          }),
         })
-          .then(response => response.json())
-          .then(response => {
-            for (let i = 0; i < response.length; i += 1) {
-              console.log(response[i]);
+          .then(res => res.json())
+          .then(data => {
+            if (data.error != undefined) {
+              alert('Failed: ' + data.error);
             }
           })
-          .then(error => alert(error));
-          */
+          .catch(err => alert(err));
       }
     };
     wrapper.appendChild(aceptButton);
