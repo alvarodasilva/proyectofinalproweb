@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoBarter</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <script defer src="js/base.js"></script>
+    {% include "api-host-script.njk" %} {% block header %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="flex-container">
+      <div class="main-flex-container-child left-aside">
+        {% block leftaside %} {% endblock %}
+      </div>
+      <div class="center">{% block center %} {% endblock %}</div>
+      <div class="main-flex-container-child right-aside">
+        {% block rightaside %} {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

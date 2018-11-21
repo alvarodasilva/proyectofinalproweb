@@ -1,4 +1,7 @@
 {
   "extends": "@ucudal",
-  "env": { "jest": true }
+  "env": {
+    "jest": true,
+    "browser": true
+  }
 }

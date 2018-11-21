@@ -1,0 +1,28 @@
+{% extends "base_with_topbar.html" %} {% block header %}
+<link rel="stylesheet" href="/css/dashboard.css" />
+<script defer src="js/dashboard.js"></script>
+{% endblock %} {% block leftaside %} {% include "leftaside.njk" %}
+<nav class="aside-nav">
+  <a href="/myarticles">My Articles</a> <a href="/matches">Matches</a>
+</nav>
+{% endblock %} {% block center %}
+<main><div id="demo"></div></main>
+<div id="offerArticleBox" class="offerArticleBox" style="display:none">
+  <div class="boxTrade" align="center">
+    <p>Offer an article</p>
+    <input type="hidden" id="artId" value="" />
+    <select id="userList" class="boxSelectTerm"> </select>
+    <!--
+      input
+        type="file"
+        accept="image/*"
+        name="image"
+        id="file"
+        class="selectImg"
+      /
+    -->
+    <input type="image" id="offerArticle" src="/images/plus(32).png" />
+  </div>
+</div>
+{% endblock %} {% block rightaside %} {% include "rightAside.njk" %} {% endblock
+%}

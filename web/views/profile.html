@@ -1,23 +1,28 @@
-<!DOCTYPE HTML>
-<html>
+{% extends "base_with_topbar.html" %} {% block leftaside %}
+<nav class="aside-nav">
+  <a href="/myarticles">My Articles</a> <a href="/matches">Matches</a>
+</nav>
+{% endblock %} {% block center %}
 
-<head>
-    <title>GoBarter</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+<h1>USER PROFILE</h1>
 
-</head>
-<header>
-    <img class="logo" src="assets/images/logo(42x34).jpg">
-    <ul>
-        <li>
-            <a href="index.html">Profile</a>
-        </li>
-    </ul>
-</header>
+    <div class="flex-container">
+        <div class="main-flex-container-child left-aside">
+            <div class="profileCard">
+                <img class="profileImg" src="/images/userLogo.png" />
+                <p id="logged-user-name"></p>
+                <p id="logged-user-email"></p>
+            </div>
+        </div>
 
-<body>
-</body>
+        </div>
 
-</html>
+        <div class="center">
+
+        </div>
+
+        <div class="main-flex-container-child right-aside">
+
+        </div>
+    </div>
+{% endblock %}

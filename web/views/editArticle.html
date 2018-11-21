@@ -1,0 +1,38 @@
+{% extends "base_with_topbar.html" %} {% block header %}
+<link rel="stylesheet" href="/css/editArticle.css" />
+<script defer src="/js/editArticle.js"></script>
+{% endblock %} {% block leftaside %} {% include "leftaside.njk" %}
+<nav class="aside-nav">
+  <a href="/myarticles">My Articles</a> <a href="/matches">Matches</a>
+</nav>
+{% endblock %} {% block center %}
+<div class="form-popup" id="edit-article-form">
+  <h1>EDIT ARTICLE</h1>
+
+  <label for="name"><b>Name</b></label>
+  <input
+    type="text"
+    id="edit-name-field"
+    placeholder="Enter article name"
+    name="name"
+    value="window.article.name"
+  />
+
+  <label for="description"><b>Description</b></label>
+  <input
+    type="text"
+    id="edit-description-field"
+    placeholder="Enter article description"
+    required
+  />
+
+  <label for="type"><b>Type</b></label>
+  <select class="type-combo" id="edit-type-field" name="type-combo"> </select>
+
+  <div class="buttons-container-form">
+    <button class="edit-article-button" onclick="onEditArticle()">SAVE</button>
+    <button class="btn-cancel" onclick="closeForm()">CLOSE</button>
+  </div>
+</div>
+{% endblock %} {% block rightaside %} {% include "rightAside.njk" %}{% endblock
+%}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "env": {
+    "NODE_ENV": "production",
+    "SEVER_PORT": "8080",
+    "DB_HOST": "@mongo-db-url",
+    "SHA_SALTS": "10",
+    "JWT_KEY": "@jwt-key"
+  }
+}

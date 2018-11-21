@@ -1,0 +1,148 @@
+@import 'palette.scss';
+
+.center {
+  background-color: $barter_blue;
+  color: white;
+}
+
+/*Card for each trade*/
+.wrapper {
+  margin: 20px;
+  height: 320px;
+  width: 654px;
+  margin: 20px auto 20px auto;
+}
+
+.product-img {
+  float: left;
+  height: 320px;
+  width: 327px;
+}
+
+.product-img img {
+  border-radius: 7px 0 0 7px;
+}
+
+.product-info {
+  float: left;
+  height: 320px;
+  width: 327px;
+  border-radius: 0 7px 10px 0px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  height: 200px;
+  width: 327px;
+  font-family: 'Century Gothic', sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.product-text h1 {
+  margin-left: 10px;
+  padding-top: 5px;
+  font-size: 25px;
+}
+
+.product-text h2 {
+  margin-left: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #3366ff;
+}
+
+.product-text p {
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+.product-text h3 {
+  color: blue;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
+/*add trade section*/
+.boxTrade {
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+/*Add your trade information boxes*/
+.boxTradeTerm {
+  width: 250px;
+  border: 3px solid #0040ff;
+  height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  margin-bottom: 15px;
+  display: block;
+}
+.boxTradeTerm:focus {
+  color: black;
+}
+
+/*Select type*/
+.boxSelectTerm {
+  width: 265px;
+  border: 3px solid #0040ff;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/*Select image from pc directory*/
+.selectImg {
+  display: block;
+  margin: 15px;
+  outline: none;
+}
+
+/*Area to introduce article description*/
+textarea {
+  resize: none;
+  border: 3px solid #0040ff;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 255px;
+  height: 70px;
+}
+
+/*notification number*/
+/*
+.notificationListNumber {
+  position: absolute;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin-left: 120px;
+  font-family: 'Century Gothic', sans-serif;
+}
+*/
+.offerArticleBox {
+  padding: 10px;
+  border: 2px solid black;
+  background-color: #0040ff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
