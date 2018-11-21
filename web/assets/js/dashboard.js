@@ -186,6 +186,7 @@ function makeOffer() {
         bidder_article_id: whatIoffer,
         user_id: userId,
         bidder_id: JSON.parse(localStorage.current_user)._id,
+        status: 'pending',
       }),
     })
       .then(res => res.json())
