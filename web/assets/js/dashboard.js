@@ -149,14 +149,3 @@ function addArticle() {
 document.getElementById('addArticle').addEventListener('click', () => {
   addArticle();
 });
-
-/*
-let userTemp = window.API_HOST + '/users/' + newArticle.user_id;
-  fetch(userTemp, {
-    headers: { token: localStorage.access_token },
-  })
-    .then(response => response.json())
-    .then(response => {
-      userTemp = response.name;
-    });
-*/
