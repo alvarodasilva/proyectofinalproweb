@@ -4,44 +4,10 @@ function showOffer(newOffer) {
     wrapper.className = 'wrap';
     const prodHolder = document.getElementById('demo').appendChild(wrapper);
 
-    const status = document.createElement('p');
-    let statusText = document.createTextNode('Status: ' + newOffer.status);
-    status.appendChild(statusText);
-    wrapper.appendChild(status);
-
-    getUserName(newOffer.bidder_id).then(name => {
-      const offerBidderId = document.createElement('p');
-      const offerBidderIdText = document.createTextNode('Bidder name: ' + name);
-      console.log('New offer bidder id ' + name);
-      offerBidderId.appendChild(offerBidderIdText);
-      wrapper.appendChild(offerBidderId);
-    });
-
-    getArticleName(newOffer.bidder_article_id).then(articleName => {
-      const offerBidderArticleId = document.createElement('p');
-      const offerBidderArticleIdText = document.createTextNode(
-        'Bidder article id: ' + articleName,
-      );
-      console.log('New offer article id ' + articleName);
-      offerBidderArticleId.appendChild(offerBidderArticleIdText);
-      wrapper.appendChild(offerBidderArticleId);
-    });
-
-    getArticleName(newOffer.article_id).then(articleId => {
-      const offerUserArticleId = document.createElement('p');
-      const offerUserArticleIdText = document.createTextNode(
-        'User article id: ' + articleId,
-      );
-      console.log('New offer article id ' + articleId);
-      offerUserArticleId.appendChild(offerUserArticleIdText);
-      wrapper.appendChild(offerUserArticleId);
-    });
-
     const aceptButton = document.createElement('button');
-    aceptButton.className = 'aceptButton';
+    aceptButton.setAttribute('class', 'aceptButton');
     const aceptButtonText = document.createTextNode('Acept');
     aceptButton.appendChild(aceptButtonText);
-    console.log('new offer status: ' + newOffer.status);
     aceptButton.onclick = () => {
       if (newOffer.status === 'pending') {
         newOffer.status = 'acepted';
@@ -51,12 +17,85 @@ function showOffer(newOffer) {
         );
         status.appendChild(newStatusText);
         wrapper.removeChild(aceptButton);
+        swapArticles(newOffer.bidder_id, newOffer.user_id);
       }
     };
     wrapper.appendChild(aceptButton);
 
-    console.log('------------------------------------');
+    const rejectButton = document.createElement('button');
+    rejectButton.setAttribute('class', 'discardButton');
+    const rejectButtonText = document.createTextNode('Reject');
+    rejectButton.appendChild(rejectButtonText);
+    rejectButton.onclick = () => {
+      if (newOffer.status === 'pending') {
+        newOffer.status = 'rejected';
+        status.removeChild(statusText);
+        const newStatusText = document.createTextNode(
+          'Status: ' + newOffer.status,
+        );
+        status.appendChild(newStatusText);
+        wrapper.removeChild(rejectButton);
+      }
+    };
+    wrapper.appendChild(rejectButton);
+
+    const status = document.createElement('p');
+    let statusText = document.createTextNode('Status: ' + newOffer.status);
+    status.appendChild(statusText);
+    wrapper.appendChild(status);
+
+    getUserName(newOffer.bidder_id)
+      .then(name => {
+        const offerBidderId = document.createElement('p');
+        const offerBidderIdText = document.createTextNode(
+          'Bidder name: ' + name,
+        );
+        offerBidderId.appendChild(offerBidderIdText);
+        wrapper.appendChild(offerBidderId);
+      })
+      .catch(error => alert(error));
+
+    getArticleName(newOffer.bidder_article_id)
+      .then(articleName => {
+        const offerBidderArticleId = document.createElement('p');
+        const offerBidderArticleIdText = document.createTextNode(
+          'Bidder article id: ' + articleName,
+        );
+        offerBidderArticleId.appendChild(offerBidderArticleIdText);
+        wrapper.appendChild(offerBidderArticleId);
+      })
+      .catch(error => alert(error));
+
+    getArticleName(newOffer.article_id)
+      .then(articleId => {
+        const offerUserArticleId = document.createElement('p');
+        const offerUserArticleIdText = document.createTextNode(
+          'User article id: ' + articleId,
+        );
+        offerUserArticleId.appendChild(offerUserArticleIdText);
+        wrapper.appendChild(offerUserArticleId);
+      })
+      .catch(error => alert(error));
   }
+}
+
+function swapArticles(bidderId, userId) {
+  let bidderIdTemp = bidderId;
+  let userIdTemp = userId;
+  console.log('BidderIdTemp ' + bidderIdTemp);
+  console.log('UserIdTemp ' + userIdTemp);
+  fetch(window.API_HOST + '/articles', {
+    headers: { authorization: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.length; i += 1) {
+        console.log(response[i]);
+        bidderIdTemp = userId;
+        userIdTemp = bidderId;
+      }
+    })
+    .then(error => alert(error));
 }
 
 function showOffers() {
@@ -67,7 +106,6 @@ function showOffers() {
     .then(response => response.json())
     .then(response => {
       for (let i = 0; i < response.length; i += 1) {
-        console.log(response[i]);
         showOffer(response[i]);
       }
     })
@@ -81,7 +119,6 @@ function getUserName(userId) {
   })
     .then(response => response.json())
     .then(response => {
-      console.log('El nombre es: ' + response.name);
       const userName = response.name;
       return userName;
     })
@@ -95,13 +132,24 @@ function getArticleName(articleId) {
   })
     .then(response => response.json())
     .then(response => {
-      console.log('El nombre es: ' + response.name);
       const userName = response.name;
       return userName;
     })
     .catch(error => alert(error));
 }
 
-function getUser() {}
+function showArticles() {
+  let url = window.API_HOST + '/articles';
+  fetch(url, {
+    headers: { authorization: localStorage.access_token },
+  })
+    .then(response => response.json())
+    .then(response => {
+      for (let i = 0; i < response.length; i += 1) {
+        console.log(response[i]);
+      }
+    })
+    .catch(error => alert(error));
+}
 
 showOffers();
