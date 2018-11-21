@@ -25,7 +25,6 @@ const onAddArticle = e => {
   closeAddForm();
   postArticle(name, description, type_id, user_id)
     .then(() => {
-      removeArticlesFromDom();
       loadAndRenderArticles();
     })
     .catch(e => alert('Something failing on creating the article' + e));
@@ -93,6 +92,7 @@ function renderArticleDetail(article) {
   return div;
 }
 function renderArticles(articles) {
+  removeArticlesFromDom();
   const target = document.getElementsByClassName('center')[0];
   let articleContainer;
   articles.forEach(article => {
