@@ -33,7 +33,9 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-  Offer.updateOne({ _id: req.params.id }, req.body, function(
+  console.log(req.params.id);
+  console.log('putas');
+  Offer.updateOne({ _id: req.params.id }, { $set: req.body }, function(
     err,
     query_response,
   ) {
