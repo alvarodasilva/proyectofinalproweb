@@ -1,7 +1,42 @@
-{% extends "base_with_topbar.html" %} {% block leftaside %}
+{% extends "base_with_topbar.html" %} {% block header %}
+<link rel="stylesheet" href="/css/myarticles.css" />
+<script defer src="js/myarticles.js"></script>
+{% endblock %} {% block leftaside %}
 <div style="background:red;height: 2000px;"></div>
 {% endblock %} {% block center %}
-<div style="background:blue;height: 100px;"></div>
+
+<!-- Add Article Button -->
+<div class="new-article-button-container">
+  <button id="add-article-button" class="add-article-button">
+    <p><b>NEW ARTICLE</b></p>
+  </button>
+</div>
+<!-- End of Add Article Button -->
+
+<div class="form-popup" id="new-article-form">
+  <h1>NEW ARTICLE</h1>
+
+  <label for="name"><b>Name</b></label>
+  <input
+    type="text"
+    id="add-name-field"
+    placeholder="Enter article name"
+    name="name"
+    required
+  />
+
+  <label for="description"><b>Description</b></label>
+  <input
+    type="text"
+    id="add-description-field"
+    placeholder="Enter article description"
+    required
+  />
+
+  <button class="btn" onclick="onAddArticle()">ADD</button>
+  <button class="btn cancel" onclick="closeAddForm()">CLOSE</button>
+</div>
+
 {% endblock %} {% block rightaside %}
-<div style="background:red;height: 100px;"></div>
+<div style="background:red;height: 2000px;"></div>
 {% endblock %}

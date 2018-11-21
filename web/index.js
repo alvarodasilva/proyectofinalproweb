@@ -32,7 +32,7 @@ app.get('/signup', checkAuthSignUp, (req, res) => res.render('signup'));
 
 app.get('/myarticles', checkAuth, (req, res) => res.render('myarticles'));
 
-app.get('/matches', checkAuth, (req, res) => res.render('myarticles'));
+app.get('/matches', checkAuth, (req, res) => res.render('matches'));
 
 app.use(express.static('assets'));
 
