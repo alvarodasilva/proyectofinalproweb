@@ -40,8 +40,10 @@
   <label for="type"><b>Type</b></label>
   <select class="type-combo" id="add-type-field" name="type-combo"> </select>
 
-  <button class="btn" onclick="onAddArticle()">ADD</button>
-  <button class="btn cancel" onclick="closeAddForm()">CLOSE</button>
+  <div class="buttons-container-form">
+    <button class="add-article-button" onclick="onAddArticle()">ADD</button>
+    <button class="btn-cancel" onclick="closeAddForm()">CLOSE</button>
+  </div>
 </div>
 
 {% endblock %} {% block rightaside %}
