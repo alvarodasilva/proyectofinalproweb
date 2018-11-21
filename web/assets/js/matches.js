@@ -17,6 +17,7 @@ function showOffer(newOffer) {
         );
         status.appendChild(newStatusText);
         wrapper.removeChild(aceptButton);
+        wrapper.removeChild(wrapper.firstChild);
         swapArticles(newOffer.bidder_id, newOffer.user_id);
       }
     };
@@ -35,6 +36,7 @@ function showOffer(newOffer) {
         );
         status.appendChild(newStatusText);
         wrapper.removeChild(rejectButton);
+        wrapper.removeChild(wrapper.firstChild);
       }
     };
     wrapper.appendChild(rejectButton);
