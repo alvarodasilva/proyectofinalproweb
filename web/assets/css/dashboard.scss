@@ -1,16 +1,16 @@
 @import 'palette.scss';
 
-main {
-  background-color: #3366ff;
+.center {
+  background-color: $barter_blue;
   color: white;
-  padding-right: 100px;
 }
 
 /*Card for each trade*/
 .wrapper {
+  margin: 20px;
   height: 320px;
   width: 654px;
-  margin: 50px auto;
+  margin: 20px auto 20px auto;
 }
 
 .product-img {
@@ -27,7 +27,7 @@ main {
   float: left;
   height: 320px;
   width: 327px;
-  border-radius: 0 7px 10px 7px;
+  border-radius: 0 7px 10px 0px;
   background-color: #ffffff;
 }
 
