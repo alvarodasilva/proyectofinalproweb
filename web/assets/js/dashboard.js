@@ -192,9 +192,11 @@ function makeOffer() {
       .then(data => {
         if (data.error != undefined) {
           alert('Failed: ' + data.error);
+        } else {
+          document.getElementById('offerArticleBox').style.display = 'none';
         }
       })
-      .catch(err => err);
+      .catch(err => alert(err));
   });
 
   // TO DO : send post with data
