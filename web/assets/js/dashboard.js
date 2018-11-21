@@ -218,5 +218,16 @@ function getUserId(articleId) {
     });
 }
 
+function showUserName() {
+  const userName = document.getElementById('username');
+  const userNameText = document.createTextNode(
+    JSON.parse(localStorage.current_user).name,
+  );
+  userName.appendChild(userNameText);
+  console.log(JSON.parse(localStorage.current_user).name);
+}
+
+showUserName();
+
 showForeignArticles();
 myArts();
