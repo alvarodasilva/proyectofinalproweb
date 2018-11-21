@@ -22,6 +22,7 @@ const generateToken = tokenData => {
   let token = jwt.sign(tokenData, process.env.JWT_KEY, {
     expiresIn: 60 * 60 * 24,
   });
+  token = 'Bearer ' + token;
   return token;
 };
 

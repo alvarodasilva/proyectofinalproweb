@@ -15,6 +15,7 @@ const create = (req, res) => {
             let token = jwt.sign({ user }, process.env.JWT_KEY, {
               expiresIn: 60 * 60 * 24,
             });
+            token = 'Bearer ' + token;
             res.json({ token, user });
           } else {
             res.json({ error: '401: Wrong password' });
