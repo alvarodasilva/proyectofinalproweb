@@ -72,66 +72,68 @@ function showArticle(newArticle) {
 */
 
 function showOffer(newOffer) {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'wrap';
-  const prodHolder = document.getElementById('demo').appendChild(wrapper);
+  if (newOffer.user_id === JSON.parse(localStorage.current_user)._id) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrap';
+    const prodHolder = document.getElementById('demo').appendChild(wrapper);
 
-  const offerBidderId = document.createElement('p');
-  const offerBidderIdText = document.createTextNode(
-    'Bidder id: ' + newOffer.bidder_id,
-  );
-  console.log('New offer bidder id ' + newOffer.bidder_id);
-  offerBidderId.appendChild(offerBidderIdText);
-  wrapper.appendChild(offerBidderId);
+    const offerBidderId = document.createElement('p');
+    const offerBidderIdText = document.createTextNode(
+      'Bidder id: ' + newOffer.bidder_id,
+    );
+    console.log('New offer bidder id ' + newOffer.bidder_id);
+    offerBidderId.appendChild(offerBidderIdText);
+    wrapper.appendChild(offerBidderId);
 
-  const offerBidderArticleId = document.createElement('p');
-  const offerBidderArticleIdText = document.createTextNode(
-    'Bidder article id: ' + newOffer.bidder_article_id,
-  );
-  console.log('New offer article id ' + newOffer.bidder_article_id);
-  offerBidderArticleId.appendChild(offerBidderArticleIdText);
-  wrapper.appendChild(offerBidderArticleId);
+    const offerBidderArticleId = document.createElement('p');
+    const offerBidderArticleIdText = document.createTextNode(
+      'Bidder article id: ' + newOffer.bidder_article_id,
+    );
+    console.log('New offer article id ' + newOffer.bidder_article_id);
+    offerBidderArticleId.appendChild(offerBidderArticleIdText);
+    wrapper.appendChild(offerBidderArticleId);
 
-  const offerUserId = document.createElement('p');
-  const offerUserIdText = document.createTextNode(
-    'User id: ' + newOffer.user_id,
-  );
-  console.log('New offer user id ' + newOffer.user_id);
-  offerUserId.appendChild(offerUserIdText);
-  wrapper.appendChild(offerUserId);
+    const offerUserId = document.createElement('p');
+    const offerUserIdText = document.createTextNode(
+      'User id: ' + newOffer.user_id,
+    );
+    console.log('New offer user id ' + newOffer.user_id);
+    offerUserId.appendChild(offerUserIdText);
+    wrapper.appendChild(offerUserId);
 
-  const offerUserArticleId = document.createElement('p');
-  const offerUserArticleIdText = document.createTextNode(
-    'User article id: ' + newOffer.article_id,
-  );
-  console.log('New offer article id ' + newOffer.article_id);
-  offerUserArticleId.appendChild(offerUserArticleIdText);
-  wrapper.appendChild(offerUserArticleId);
+    const offerUserArticleId = document.createElement('p');
+    const offerUserArticleIdText = document.createTextNode(
+      'User article id: ' + newOffer.article_id,
+    );
+    console.log('New offer article id ' + newOffer.article_id);
+    offerUserArticleId.appendChild(offerUserArticleIdText);
+    wrapper.appendChild(offerUserArticleId);
 
-  const status = document.createElement('p');
-  let statusText = document.createTextNode('Status: ' + newOffer.status);
-  status.appendChild(statusText);
-  wrapper.appendChild(status);
+    const status = document.createElement('p');
+    let statusText = document.createTextNode('Status: ' + newOffer.status);
+    status.appendChild(statusText);
+    wrapper.appendChild(status);
 
-  const aceptButton = document.createElement('button');
-  aceptButton.className = 'aceptButton';
-  const aceptButtonText = document.createTextNode('Acept');
-  aceptButton.appendChild(aceptButtonText);
-  console.log('new offer status: ' + newOffer.status);
-  aceptButton.onclick = () => {
-    if (newOffer.status === 'pending') {
-      newOffer.status = 'acepted';
-      status.removeChild(statusText);
-      const newStatusText = document.createTextNode(
-        'Status: ' + newOffer.status,
-      );
-      status.appendChild(newStatusText);
-      wrapper.removeChild(aceptButton);
-      wrapper.removeChild(discardButton);
-    }
-  };
-  wrapper.appendChild(aceptButton);
-  console.log('------------------------------------');
+    const aceptButton = document.createElement('button');
+    aceptButton.className = 'aceptButton';
+    const aceptButtonText = document.createTextNode('Acept');
+    aceptButton.appendChild(aceptButtonText);
+    console.log('new offer status: ' + newOffer.status);
+    aceptButton.onclick = () => {
+      if (newOffer.status === 'pending') {
+        newOffer.status = 'acepted';
+        status.removeChild(statusText);
+        const newStatusText = document.createTextNode(
+          'Status: ' + newOffer.status,
+        );
+        status.appendChild(newStatusText);
+        wrapper.removeChild(aceptButton);
+        wrapper.removeChild(discardButton);
+      }
+    };
+    wrapper.appendChild(aceptButton);
+    console.log('------------------------------------');
+  }
 }
 
 function aceptOffer(newOffer) {
