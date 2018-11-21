@@ -69,22 +69,6 @@ function showArticle(newArticle) {
   return prodHolder;
 }
 
-function showArticles() {
-  fetch(window.API_HOST + '/articles', {
-    headers: { authorization: localStorage.access_token },
-  })
-    .then(response => response.json())
-    .then(response => {
-      for (let i = 0; i < response.length; i += 1) {
-        showArticle(response[i]);
-      }
-    });
-  // .catch(error => console.log(error));
-}
-
-showArticles();
-
-/*
 function showOffers() {
   let url = window.API_HOST + '/offers';
   fetch(url, {
@@ -100,4 +84,3 @@ function showOffers() {
 }
 
 showOffers();
-*/
