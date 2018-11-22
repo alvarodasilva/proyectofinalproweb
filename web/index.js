@@ -36,8 +36,6 @@ app.get('/myarticles/:id', checkAuth, (req, res) => res.render('editArticle'));
 
 app.get('/matches', checkAuth, (req, res) => res.render('matches'));
 
-app.get('/profile', (req, res) => res.render('profile'));
-
 app.use(express.static('assets'));
 
 app.listen(process.env.SEVER_PORT);
