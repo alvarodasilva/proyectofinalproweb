@@ -101,28 +101,57 @@ function showOffer(newOffer) {
           })
           .catch(err => alert(err));
       }
+      swapArticles(
+        newOffer.user_id,
+        newOffer.article_id,
+        newOffer.bidder_id,
+        newOffer.bidder_article_id,
+      );
     };
     wrapper.appendChild(aceptButton);
   }
 }
 
-function swapArticles(bidderId, userId) {
+function swapArticles(userid, articleId, bidderId, bidderArtId) {
   let bidderIdTemp = bidderId;
-  let userIdTemp = userId;
   console.log('BidderIdTemp ' + bidderIdTemp);
-  console.log('UserIdTemp ' + userIdTemp);
-  fetch(window.API_HOST + '/articles', {
-    headers: { authorization: localStorage.access_token },
+  let url = window.API_HOST + '/articles/' + articleId;
+  fetch(url, {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: localStorage.access_token,
+    },
+    body: JSON.stringify({
+      user_id: bidderId,
+    }),
   })
-    .then(response => response.json())
-    .then(response => {
-      for (let i = 0; i < response.length; i += 1) {
-        console.log(response[i]);
-        bidderIdTemp = userId;
-        userIdTemp = bidderId;
+    .then(res => res.json())
+    .then(data => {
+      if (data.error != undefined) {
+        alert('Failed: ' + data.error);
       }
     })
-    .then(error => alert(error));
+    .catch(err => alert(err));
+
+  url = window.API_HOST + '/articles/' + bidderArtId;
+  fetch(url, {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: localStorage.access_token,
+    },
+    body: JSON.stringify({
+      user_id: userid,
+    }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.error != undefined) {
+        alert('Failed: ' + data.error);
+      }
+    })
+    .catch(err => alert(err));
 }
 
 function showOffers() {
