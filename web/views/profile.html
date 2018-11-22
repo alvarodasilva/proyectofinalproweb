@@ -1,8 +1,27 @@
+ {% block header %}
+<link rel="stylesheet" href="/css/profile.css" />
+{% endblock %}
+
 {% extends "base_with_topbar.html" %} {% block leftaside %}
 <nav class="aside-nav">
-  <a href="/myarticles">My Articles</a> <a href="/matches">Matches</a>
+      <a href="/myarticles">My Articles</a>
+      <a href="/matches">Matches</a>
 </nav>
 {% endblock %} {% block center %}
-<h1>PROFILE PAGE</h1>
-{% endblock %} {% block rightaside %} {% include "rightAside.njk" %}{% endblock
-%}
+
+    <div class="flex-container">
+        <div class="main-flex-container-child left-aside profile-container">
+            <div class="profileCard">
+                <img class="profileImg" src="/images/userLogo.png" />
+                <p id="logged-user-name"></p>
+                <p id="logged-user-email"></p>
+            </div>
+            <script>
+                let u = JSON.parse(localStorage.current_user);
+                document.getElementById("logged-user-name").textContent =  u.name;
+                document.getElementById("logged-user-email").textContent = u.mail;
+            </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
