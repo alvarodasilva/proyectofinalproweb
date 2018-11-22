@@ -46,11 +46,9 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-  console.log('BODYYY');
-  console.log(req.body);
   console.log('ID');
   console.log(req.params.id);
-  Article.updateOne({ _id: req.params.id }, req.body, function(
+  Article.updateOne({ _id: req.params.id }, { $set: req.body }, function(
     err,
     query_response,
   ) {
