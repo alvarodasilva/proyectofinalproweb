@@ -2,6 +2,8 @@
 
 This is a barter trade web page, where users can exchange items online.
 
+URL: https://go-barter.now.sh
+
 The page works like this:
 1. Sing in
 2. Upload an item with a description and what you would like to exchange it for
@@ -38,7 +40,7 @@ Delete items
 
 ### Users
 guille@crack.es guille
-soy_el_alvarito@gmail.com alva
+soy_el_alvarito@gmail.com alvarito
 decime_fran@gmail.com guille fran
 federicomoyamartin@gmail.com fede
 
